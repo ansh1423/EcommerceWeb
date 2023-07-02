@@ -1,16 +1,63 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-prev::before,
+.slick-next::before{
+    display: none;
+}
+/* .slick-next{
+width: 4vw;
+} */
+body{
+    /* font-family: 'Bebas Neue', sans-serif; */
+font-family: 'Mulish', sans-serif;
+}
+.slick-next{
+    right:10px !important;
+    border-top-right-radius: 7px !important;
+    border-bottom-right-radius: 7px !important;
+    z-index: 200 !important;
+ 
+
+    
+}
+.slick-prev{
+    left:0px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    z-index: 200;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.slick-dots{
+    display: flex !important;
+    /* width: 100px !important; */
+    flex-direction: column !important;
+    /* gap: 5px !important; */
+    align-items: flex-start !important;
+    bottom: 0 !important ;
+    top: 0 !important;
 }
-
-* {
-  box-sizing: border-box;
+.slick-dots li{
+    width:100px !important;
+    height: 100px !important;
+}
+@media (max-width:1200px){
+    .slick-dots{
+        gap:35px !important;
+    }
+}
+@media (max-width:960px){
+    .slick-dots{
+        flex-direction: row !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+        gap: 0px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        top: 100% !important;    
+    }
+    .slick-dots li button:before{
+        font-size: 9px !important;
+    }
 }
