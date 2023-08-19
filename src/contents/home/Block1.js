@@ -23,16 +23,16 @@ position:'relative',
 borderRadius:'0px',
 "@media (max-width: 900px)": {
     width:"100%",
-height:"600px",
 height:"400px",
 backgroundColor:'white',
  },
 
-"@media (max-width: 600px)": {
-    backgroundColor:'white',
-    width:"100%",
-    marginTop:'80px',
-    height:"350px",
+"@media (max-width: 765px)": {
+    // backgroundColor:'white',
+    // width:"100%",
+    // marginTop:'80px',
+    // height:"350px",
+    display:'none'
  },
 
 
@@ -86,17 +86,16 @@ const Block1 = () => {
 // console.log(sliderData)  
   const settings = {
     dots: false,
-    arrows:true,
+    arrows:false,
     infinite:true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay:false,
+    autoplay:true,
     autoplaySpeed: 3000,
     cssEase: "linear",
     initialSlide:0,
-    prevArrow:<PreviousBtn />,
-    nextArrow:<NextBtn />,
+   
       responsive: [
         {
           breakpoint: 1200,
@@ -152,6 +151,7 @@ const Block1 = () => {
   };
   return (
     <>
+    <div className='mt-36 '>
      {/* <Box sx={{display:'flex',padding:{xs:'20px',sm:'30px',md:'0px 0px 30px 200px'},justifyContent:'center',flexDirection:'column'}}>
        <Typography sx={{fontSize:{xs:'30px',sm:'30px',md:'30px'},fontWeight:'500',color:'black'}}>Popular Courses</Typography>
        <Typography sx={{fontSize:{xs:'15px',sm:'20px',md:'15px'},fontWeight:'500',color:'black'}}>Limitless learning, more possibilities</Typography>
@@ -166,10 +166,12 @@ const Block1 = () => {
     </Slider>
       </SliderInnerContainer>  
     </SliderContainer>
+    </div>
 {/* 
       <Box sx={{display:'flex',justifyContent:'center',marginTop:'30px'}}>
       <Button variant='contained' sx={{backgroundColor:'#FE8C3C',color:'white',border:'1px solid black',borderRadius:'10px',"&:hover":{backgroundColor:'black',color:'white'},width:'150px',fontSize:'20px'}}>Explore All</Button>
       </Box> */}
+
     </>
   )
 }

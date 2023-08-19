@@ -1,50 +1,137 @@
-import React, { useState } from 'react'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ClearIcon from '@mui/icons-material/Clear';
-import Link from "next/link"
-import { Dialog } from '@mui/material';
-import Sign from './Sign'
-function Login({setDilogOpen}) {
-const handleClick = () =>{
-  setDilogOpen(false)
-}
-const [openSign,setopenSign]=useState(false)
-const handleOnchange=()=>{
-  setopenSign(true)
-}
-  return (
-    <form action="">
-       <Dialog open={openSign} >
-         <Sign setopenSign = {setopenSign} setDilogOpen={setDilogOpen} />
-      </Dialog>
-      <div className="border-2  rounded" style={{width:"30vw"}} >
-        <h1 className='flex justify-end '><ClearIcon onClick={handleClick} /></h1>
-        <h1 className='flex justify-center text-base py-3 my-1'>LOGIN</h1>
-        <div className='flex flex-col px-3 w-full'>
-          <div>
-          <label htmlFor="email" >Email </label>
-        <input type="email" name="email" className='border-2  w-full px-2 my-2 py-4' id="email" placeholder='Enter the email*' />
-          </div>
-          <label htmlFor="password">Password</label>
-          <div>
-        <input type="password" name="password" className='border-2 px-2 w-full py-4 my-2 ' id="password" placeholder='Enter the Password'/>
-          </div>
-         <div className='flex justify-center'>
-          <button type="submit" className='py-2 bg-teal-300 text-white px-3 my-3'>LOGIN</button>
-          </div>
-          <div>
-            <h1 className='flex justify-center'>Already have a account. </h1>
-            {/* <a href="/" className='flex py-4 justify-center'>Sign Up</a> */}
-          <Link href={"/"} className='flex justify-center text-teal-500' >Forget password</Link>
-          <h1 className='flex justify-center py-3'>DON'T HAVE A ACCOUNT? <p onClick={handleOnchange} style={{color:'teal' , paddingLeft:'5px'}} > SIGN UP</p> </h1>
-    
-          
-          </div>
-          
-        </div>
-      </div>
-      </form>
-  )
-}
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  useFormControl,
+} from "@mui/material";
+import { useFormik } from "formik";
+import React from "react";
+import { LoginSchema } from "../../schema/Login";
+import { useRouter } from "next/router";
+import CloseIcon from "@mui/icons-material/Close";
+import { useDispatch } from "react-redux";
+import { login, register } from "../../redux/slices/Auth";
+const Login = ({ setDilogOpen }) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const handleForget = () => {
+    router.push("/forget");
+  };
+  const handleRegister = () => {
+    router.push("/signup");
+  };
 
-export default Login
+  const handleClear = () => {
+    setDilogOpen(false);
+  };
+  const initialValue = {
+    username: "",
+    password: "",
+  };
+
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } =
+    useFormik({
+      initialValues: initialValue,
+      validationSchema: LoginSchema,
+      onSubmit: async (values, action) => {
+        console.log(values);
+        const result = await dispatch(login(values));
+        if (result) {
+          alert("LogIn Successfully");
+          router.push("/");
+        }
+
+        console.log(result);
+        action.resetForm();
+      },
+    }); // console.log(errors)
+  return (
+    <>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", borderRadius: "20px" }}
+      >
+        <Box
+          sx={{
+            width: "400px",
+            gap: "",
+            border: "1px solid black",
+            height: "400px",
+            flexDirection: "column",
+            display: "flex",
+            postition: "relative",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CloseIcon
+            onClick={handleClear}
+            sx={{ position: "absolute", top: "5px", left: "90%" }}
+          />
+          <Typography className=" text-lg">LOG IN</Typography>
+          <form
+            style={{
+              flexDirection: "column",
+              display: "flex",
+              justifyContent: "",
+              alignItems: "",
+              width: "100%",
+              gap: "",
+              padding: "20px",
+            }}
+            onSubmit={handleSubmit}
+          >
+            <h1 className="text-sm py-1">User Name</h1>
+            <input
+              type="name"
+              name="username"
+              value={values.username}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className="border w-full py-2 text-sm px-2 border-emerald-500"
+            />
+            {errors.username && touched.username && (
+              <div style={{ color: "red" }}>{errors.username}</div>
+            )}
+            <h1 className="text-sm w-full py-1">Password</h1>
+            <input
+              type="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className="border w-full py-2 text-sm px-2 border-emerald-500"
+            />
+            {errors.password && touched.password && (
+              <div style={{ color: "red" }}>{errors.password}</div>
+            )}
+
+            {/* {errors.password && touched.password  && <div style={{color:'red'}}>{errors.password}</div>} */}
+            <Button
+              type="submit"
+              color="primary"
+              className="bg-blue-500 my-8 text-white hover:bg-blue-500"
+              // onClick={handleSubmit}
+            >
+              Continue
+            </Button>
+            <h1 onClick={handleForget} className="text-center cursor-pointer">
+              Forget Password
+            </h1>
+          </form>
+          <div className="flex">
+            <Typography>Don't have an Account ?</Typography>
+            <Typography
+              onClick={handleRegister}
+              className="cursor-pointer gap-1  "
+            >
+              Sign Up
+            </Typography>
+          </div>
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+export default Login;

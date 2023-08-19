@@ -59,7 +59,7 @@ function Footer() {
                   <PinterestIcon sx={{ fontSize: "30px" }} />
                 </h1>
               </div>
-              <h1 className="flex  text-xs max-lg:justify-center">
+              <h1 className="flex  text-xs max-lg:justify-center ">
                 #StayAwesome{" "}
               </h1>
             </div>
@@ -118,7 +118,7 @@ function Footer() {
               <h1 className="text-xs py-1 font-medium">FITFLOP</h1>
             </div>
 
-            <div className="">
+            <div className="max-sm:w-full">
               <Accordion sx={{ display: { sm: "none" } }}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -203,7 +203,7 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h1 className="w-full py-3 flex justify-end items-end">
+          <h1 className="w-full max-sm:justify-center max-sm:text-sm py-3 flex justify-end items-end">
             © 2023 Metro Brands Limited. ALL RIGHTS RESERVED.
           </h1>
         </div>

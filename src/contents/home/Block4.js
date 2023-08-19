@@ -2,7 +2,7 @@ import React from 'react'
 
 function Block4() {
   return (
-    <h1 className='flex text-6xl max-md:text-4xl max-sm:text-3xl justify-center  w-full h-36 items-center'>OUR BESTSELLERS</h1>
+    <h1 className='flex text-5xl max-lg:text-3xl  pt-16 justify-center font-semibold w-full  h-32 '>OUR BESTSELLERS</h1>
   )
 }
 

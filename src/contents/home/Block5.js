@@ -18,11 +18,11 @@ overflow:"hidden",
 //  margin:"2% -1.5%"
 
 // },
-// "@media (max-width: 1200px)": {
-//   width:"95%",
-//   margin:"1% 1rem"
+"@media (max-width: 1200px)": {
+  width:"95%",
+   margin:"1% 1rem"
  
-//  },
+ },
 
 })
 const SliderInnerContainer = styled('div')(({ theme }) => ({
@@ -64,7 +64,7 @@ console.log(props.sliderData)
         arrows:true,
         infinite: false,
         speed: 500,
-        slidesToShow: 3.5,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: false,
         autoplaySpeed: 2000,
@@ -76,7 +76,7 @@ console.log(props.sliderData)
             {
               breakpoint: 1200,
               settings: {
-                slidesToShow: 3,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 speed: 300,
                 arrows:false,
@@ -94,7 +94,7 @@ console.log(props.sliderData)
             {
               breakpoint: 800,
               settings: {
-                slidesToShow: 2.5,
+                slidesToShow: 5,
                 slidesToScroll: 2,
                 speed: 300,
                 arrows:false,
@@ -132,6 +132,8 @@ console.log(props.sliderData)
 
   return (
     <>
+    
+
     <SliderContainer>         
       <SliderInnerContainer>
         {/* <Header sliderH={props.sliderData.category}/> */}
@@ -142,6 +144,7 @@ console.log(props.sliderData)
         </Slider>
       </SliderInnerContainer>  
     </SliderContainer>
+    
     </>
   )
 }

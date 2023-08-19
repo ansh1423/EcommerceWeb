@@ -1,10 +1,11 @@
 import React from 'react'
+import Login from '../../src/components/auth/Login'
 
 const index = () => {
   return (
-    <div>
-      <h2>Login data</h2>
-    </div>
+    <>
+    <Login/>
+    </>
   )
 }
 

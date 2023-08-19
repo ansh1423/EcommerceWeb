@@ -9,12 +9,7 @@ function index() {
   return (
    <>
    <Navabar/>
-   
    <Block1/>
-  
-  
-   
-   
    <Footer/>
    </>
   )
