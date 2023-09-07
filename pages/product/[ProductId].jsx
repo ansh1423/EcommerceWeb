@@ -9,7 +9,7 @@ import Footer from '../../src/layouts/Footer'
 import { Products } from '../../src/constants/home/Products'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProduct } from '../../src/redux/slices/Product'
-export default function index() {
+export default function Index() {
   const dispatch=useDispatch();
   const  data=useSelector((state)=>{state.product.product});
   console.log(data)

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addProduct, getProduct } from '../../src/redux/slices/Product'
 import Block4 from '../../src/contents/products/Block4'
 
-function index() {
+function Index() {
   const dispatch = useDispatch();
   const product=useSelector((state)=>state.product);
   
@@ -36,4 +36,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

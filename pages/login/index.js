@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../../src/components/auth/Login'
 
-const index = () => {
+const Index = () => {
   return (
     <>
     <Login/>

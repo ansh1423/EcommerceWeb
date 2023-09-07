@@ -8,7 +8,7 @@ import Block5 from '../../src/contents/Checkout/Block5'
 import { useDispatch, useSelector } from 'react-redux'
 import { Cartlist } from '../../src/redux/slices/Cart'
 
-function index() {
+function Index() {
   const dispatch = useDispatch();
   
   const cart=useSelector((state)=>state?.cart?.cart);
@@ -35,4 +35,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

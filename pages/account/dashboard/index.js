@@ -2,7 +2,7 @@ import React from 'react'
 import { Block1 } from '../../../src/contents/account/dashboard/Block1'
 import Footer from '../../../src/layouts/Footer'
 import Navabar from '../../../src/layouts/Navabar/index'
- const index = () => {
+ const Index = () => {
   return (
     <>
      <Navabar/>
@@ -13,4 +13,4 @@ import Navabar from '../../../src/layouts/Navabar/index'
   )
 }
 
-export default index
+export default Index

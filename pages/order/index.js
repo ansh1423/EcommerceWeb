@@ -4,7 +4,7 @@ import Navabar from '../../src/layouts/Navabar/index'
 import Footer from '../../src/layouts/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { Orderlist, createOrder, getOrder } from '../../src/redux/slices/Order'
-function index() {
+function Index() {
   const dispatch=useDispatch();
    
   // useEffect(() => {
@@ -34,4 +34,4 @@ function index() {
 
 }
 
-export default index
+export default Index

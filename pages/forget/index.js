@@ -1,7 +1,7 @@
 import React from 'react'
 import Forget from '../../src/components/auth/Forget'
 
- const index = () => {
+ const Index = () => {
   return (
     <>
     <Forget/>
@@ -9,4 +9,4 @@ import Forget from '../../src/components/auth/Forget'
     </>
   )
 }
-export default index
+export default Index

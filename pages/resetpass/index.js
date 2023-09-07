@@ -2,7 +2,7 @@ import React from 'react'
 import ResetPass from '../../src/components/auth/ResetPass'
 
 
-function index() {
+function Index() {
   return (
     <>
     <ResetPass/>
@@ -10,4 +10,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

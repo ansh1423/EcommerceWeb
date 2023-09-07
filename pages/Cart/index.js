@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Cartlist, createCart } from '../../src/redux/slices/Cart'
 import {getCart} from '../../src/redux/slices/Cart'
 import { getUser } from '../../src/redux/slices/Auth'
-function index() {
+function Index() {
   const dispatch=useDispatch();
 
   const fetchdata= async () => {
@@ -30,4 +30,4 @@ function index() {
   )
   }
 
-export default index
+export default Index

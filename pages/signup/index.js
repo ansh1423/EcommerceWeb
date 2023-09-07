@@ -1,7 +1,7 @@
 import React from 'react'
 import SignUp from '../../src/components/auth/SignUp'
 
-function index() {
+function Index() {
   return (
    <>
    <SignUp/>
@@ -9,4 +9,4 @@ function index() {
   )
 }
 
-export default index
+export default Index
