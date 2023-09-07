@@ -1,19 +1,18 @@
-import { Box, Button, styled, Typography } from '@mui/material'
-import React from 'react'
-import { useRouter } from 'next/router'
-import { Shoesimage } from '../Block4/Shoesimage'
-
-
+import { Box, Button, styled, Typography } from "@mui/material";
+import React from "react";
+import { useRouter } from "next/router";
+import { Shoesimage } from "../Block4/Shoesimage";
+import { useSelector } from "react-redux";
 
 const SliderContainer = styled("div")({
   width: "100%",
   height: "100%",
- 
-  display: 'flex',
 
-  flexDirection: 'column',
-  alignItems: 'center',
-  
+  display: "flex",
+
+  flexDirection: "column",
+  alignItems: "center",
+
   "@media (max-width: 900px)": {
     width: "100%",
     height: "400px",
@@ -22,15 +21,14 @@ const SliderContainer = styled("div")({
     width: "100%",
     height: "350px",
   },
-
-})
+});
 const ImageContainer = styled("div")({
   display: "flex",
   width: "100%",
   height: "100%",
-  position: 'relative',
-  background: '#F2F2F2',
-  
+  position: "relative",
+  background: "#F2F2F2",
+
   "@media (max-width: 900px)": {
     width: "100%",
     height: "600px",
@@ -39,49 +37,52 @@ const ImageContainer = styled("div")({
     width: "100%",
     height: "600px",
   },
-
-})
+});
 const Image = styled("img")({
   width: "100%",
   height: "100%",
   objectFit: "cover",
-  borderRadius: '0px',
- 
-  "@media (max-width: 900px)": {
-    width: '100%',
-    height: '400px',
+  borderRadius: "0px",
 
+  "@media (max-width: 900px)": {
+    width: "100%",
+    height: "400px",
   },
 
   "@media (max-width: 600px)": {
-    width: '100%',
-    height: '350px',
-
+    width: "100%",
+    height: "350px",
   },
-
-})
+});
 
 const SliderItem = ({ posterLinks }) => {
-  // console.log(posterLinks)
-  const router = useRouter();
-
- 
+   console.log(posterLinks);
   return (
     <>
-      <SliderContainer>
-        <ImageContainer>
-          <Box sx={{ width: '100%', height:'100%',  }}>
-            <Image src={posterLinks.img} alt="divineyogpeeth yoga" />
+      <SliderContainer sx={{backgroundColor:"black"}}>
+        <ImageContainer  sx={{backgroundColor:"black"}}>
+          <Box sx={{ width: "100%", height: "100%" }}>
+            <Image src={posterLinks?.path} alt="divineyogpeeth yoga" />
+          
           </Box>
-          {/* <Box sx={{ position: 'absolute', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: { xs: '350px', sm: '400px', md: '500px' }, flexDirection: 'column' }}>
-            <Typography sx={{ color: 'white', fontSize: { xs: '20px', sm: '23px', md: '25px' }, }}>With Divine Yogpeeth</Typography>
-            <Typography sx={{ fontyFamily: 'Kaushan Script', fontSize: { xs: '35px', sm: '35px', md: '45px' }, fontWeight: '700', color: 'white' }}>Balance Your Life</Typography>
-            <Button variant='contained' sx={{ borderRadius: '0px', background: 'white', color: 'black' }} onClick={handleContact}> Book Now</Button>
-          </Box> */}
         </ImageContainer>
+          {
+            <Box
+              sx={{
+                position: "absolute",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                height: { xs: "350px", sm: "400px", md: "500px" },
+                flexDirection: "column",
+              }}
+            >
+            </Box>
+          }
       </SliderContainer>
     </>
-  )
-}
+  );
+};
 
-export default SliderItem
+export default SliderItem;

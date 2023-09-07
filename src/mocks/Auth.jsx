@@ -5,17 +5,17 @@ class AuthApi{
 
     async getUser(){
       // ${process.env.NEXT_PUBLIC_HOST}
-      console.log("data from auth");
-       const response = await axios.get(`http://localhost:5000/userapp/user/me`,{
       
+       const response = await axios.get(`http://localhost:5000/userapp/user/me`,{
+        
         method: "get",
         headers: { 
         "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
         }
       });
-      console.log("data from auth",response)
+      
        if(response.data.status==='SUCCESS'){
-       console.log(response)
+       
        return response.data;
        }
        else
@@ -29,7 +29,8 @@ class AuthApi{
         "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
         }
       });
-        if(response.data.status==='SUCCESS')
+      console.log(response)
+         if(response.data.status==='SUCCESS')
         return response.data;
         else
          return false;
@@ -53,7 +54,7 @@ class AuthApi{
    async register(data){
     // console.log(data,'mocks')
     const response = await axios.post(`http://localhost:5000/userapp/auth/register`,data);
-    console.log(response)
+    console.log(response);
     if(response.data.status==='SUCCESS')
     return response.data;
     else
@@ -75,8 +76,8 @@ class AuthApi{
   return false;
    }
 
-   async Resetpass(data){
-    const responce = await axios.post(`http://localhost:5000/userapp/auth/reset-password`,data);
+   async ResetPass(data){
+    const responce = await axios.put(`http://localhost:5000/userapp/auth/reset-password`,data);
     if(responce.data.status==='SUCCESS')
     return responce.data;
   else

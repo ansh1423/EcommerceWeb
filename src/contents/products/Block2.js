@@ -1,12 +1,12 @@
 
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select, useTheme } from '@mui/material'
 import React, { useState } from 'react'
-const ITEM_HEIGHT = 48;
+const ITEM_HEIGHT = 40;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      maxHeight: ITEM_HEIGHT * 2.5 + ITEM_PADDING_TOP,
       width: 250,
     },
   },
@@ -40,16 +40,24 @@ function Block2() {
         typeof value === 'string' ? value.split(',') : value,
       );
     };
-  
+   
   return (
     <>
-    <div className='flex   justify-between'>
-   <div className='text-base font-base mx-4 my-4'>
-     <p className='my-2'>FILTERS</p>
+    <div class=' border-b border-slate-300 max-md:hidden'>
+    <div className='flex mx-4 pb-2  items-end justify-between'>
+   <div className='text-[15px]  font-[600px] '>
+     <p className='py-2  '>FILTERS</p>
    </div>
-    <div className=''>
-    <FormControl sx={{ m: 1, width: 300 }}>
-    <InputLabel id="demo-multiple-name-label">Sort By:Popularity</InputLabel>
+     <div class='flex gap-1  h-8'>
+       <h1 className='font-[400px] text-[13px]  bg-slate-100 rounded-lg px-2 py-1'>Men Chappal</h1>
+       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Sandals</h1>
+       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Sneakers</h1>
+       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Loafers</h1>
+       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Jutis</h1>
+       </div>
+     <div className=''>
+    <FormControl sx={{  width:200 }}>
+    <InputLabel id="demo-multiple-name-label text-[2px]">Sort By : Popularity</InputLabel>
     <Select
       labelId="demo-multiple-name-label"
       id="demo-multiple-name"
@@ -70,10 +78,10 @@ function Block2() {
       ))}
     </Select>
   </FormControl>
+</div> 
 </div>
 </div>
-<div className='border-2 my-2'>
-</div>
+
 </>
   )
 }

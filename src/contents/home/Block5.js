@@ -7,6 +7,7 @@ import Item from './item/Item';
 import { ChevronLeftOutlined, ChevronRightOutlined } from '@mui/icons-material';
 import Header from './header/Header';
 import { styled } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 const SliderContainer = styled('div')({
 width:"99%",
@@ -29,7 +30,7 @@ const SliderInnerContainer = styled('div')(({ theme }) => ({
   display: "flex",
   justifyContent:"space-between",
   flexDirection:"column",
-  boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
+ 
   padding:"0 10px 0 20px",
   [theme.breakpoints.down('sm')]: {
     padding:"0 0 0 4px",
@@ -129,7 +130,8 @@ console.log(props.sliderData)
             // },
         ]
       };
-
+      const product=useSelector((state)=>state?.product?.product);
+      console.log(product);
   return (
     <>
     
@@ -138,7 +140,7 @@ console.log(props.sliderData)
       <SliderInnerContainer>
         {/* <Header sliderH={props.sliderData.category}/> */}
         <Slider {...settings}>
-        { props.sliderData.map((item,index)=>(
+        { product && product.length > 0 && product?.map((item,index)=>(
         <Item posterLinks={item} key={index} />
         ))}
         </Slider>

@@ -21,8 +21,8 @@ const SignUp = () => {
     initialValues: intialValue,
     //  console.log(values)
     onSubmit: async(values, action) => {
-      console.log("ansh")
-      console.log(values);
+      // console.log("ansh")
+      // console.log(values);
       const result  = await dispatch(register(values))
       console.log(result)
       if (result){

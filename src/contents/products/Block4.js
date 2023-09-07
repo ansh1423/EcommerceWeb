@@ -8,16 +8,15 @@ import SliderItem from './slider/SliderItem';
 import { ArrowBack, ArrowForward, ChevronLeftOutlined, ChevronRightOutlined, } from '@mui/icons-material';
 
 import { Box, Button, styled, Typography } from '@mui/material';
-// import { Shoesimage } from './Block4/Shoesimage';
-
+import { useSelector } from 'react-redux';
+import { Shoesimage } from './Block4/Shoesimage';
+import { useRouter } from 'next/router';
 const SliderContainer = styled('div')({
-width:"100%",
-height:"100%",
-display: "flex",
-justifyContent:'center',
-alignItems:'center',
+width:"30%",
+height:"30%",
+// display: "flex",
 overflow:"hidden",
-backgroundColor:'#EBEBEB',
+
 position:'relative',
 // border:'1px solid black',
 // boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
@@ -41,7 +40,7 @@ backgroundColor:'white',
 const SliderInnerContainer = styled('div')({
  
   width:'100%',
-  height:'auto',
+  height:'60%',
   // border:'1px solid black',
   overflow:"hidden",
   backgroundColor:'#EBEBEB',
@@ -55,8 +54,8 @@ const SliderInnerContainer = styled('div')({
  },
 
   "@media (max-width: 600px)": {
-    width:'100%',
-    height:"350px",
+    width:'10%',
+    height:"40px",
  
  },
 })
@@ -64,7 +63,7 @@ const SliderInnerContainer = styled('div')({
 
 
 
-const PreviousBtn = (props) =>{
+const PreviousBtn = () =>{
   const {className,onClick} = props;
   
    return (
@@ -84,7 +83,9 @@ const NextBtn = (props) =>{
 }
 
 
-const Block4 = ({Shoesimage}) => {
+const Block4 = ({data}) => {
+  console.log(data)
+  const router=useRouter();
 // console.log(sliderData)  
   const settings = {
     dots: true,
@@ -97,8 +98,8 @@ const Block4 = ({Shoesimage}) => {
     autoplaySpeed: 3000,
     cssEase: "linear",
     initialSlide:0,
-    prevArrow:<PreviousBtn />,
-    nextArrow:<NextBtn />,
+    // prevArrow:<PreviousBtn />,
+    // nextArrow:<NextBtn />,
       responsive: [
         {
           breakpoint: 1200,
@@ -152,26 +153,29 @@ const Block4 = ({Shoesimage}) => {
         },
     ]
   };
+  
   return (
     <>
-     {/* <Box sx={{display:'flex',padding:{xs:'20px',sm:'30px',md:'0px 0px 30px 200px'},justifyContent:'center',flexDirection:'column'}}>
-       <Typography sx={{fontSize:{xs:'30px',sm:'30px',md:'30px'},fontWeight:'500',color:'black'}}>Popular Courses</Typography>
-       <Typography sx={{fontSize:{xs:'15px',sm:'20px',md:'15px'},fontWeight:'500',color:'black'}}>Limitless learning, more possibilities</Typography>
-      
-       </Box> */}
+     
     <SliderContainer>         
-       <SliderInnerContainer>
+       <SliderInnerContainer  onClick={()=>router.push(`/product/${data.id}`)} >
     <Slider {...settings}>
-     {Shoesimage && Shoesimage.map((item)=>(
-      <SliderItem  key={item.key} posterLinks={item} />
-      ))}
+     {data && data.productImages.length >0 && data.productImages?.map((item) => (
+      
+    <SliderItem key={item} posterLinks={item}  />
+))} 
     </Slider>
+   
+    <div>
+    <h1 className='text-sm font-bold text-start px-3 pt-1 '>{data?.title?.shortTitle}</h1>
+    <h2 class='text-sm text-start font-medium px-3 pt-1'>{data?.title?.longTitle}</h2>
+    <h3 class='text-sm text-start font-bold px-3 p-1'>Rs. 3330 </h3>
+    </div>
       </SliderInnerContainer>  
     </SliderContainer>
-{/* 
-      <Box sx={{display:'flex',justifyContent:'center',marginTop:'30px'}}>
-      <Button variant='contained' sx={{backgroundColor:'#FE8C3C',color:'white',border:'1px solid black',borderRadius:'10px',"&:hover":{backgroundColor:'black',color:'white'},width:'150px',fontSize:'20px'}}>Explore All</Button>
-      </Box> */}
+    
+  
+
     </>
   )
 }

@@ -6,12 +6,12 @@ function Block9() {
       <div className="flex justify-center   max-lg:grid max-lg:grid-cols-3 ">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRyrPvXc8NlAdDGOdDqSZnrW5J81nPR6XA3A&usqp=CAU"
-          className=" w-48  h-44 max-xl:w-44 max-md:w-32 my-2 mx-5  "
+          className=" w-48  h-44 max-xl:w-44 max-md:w-32 my-2 mx-2 "
           alt=""
         />
         <img
           src="https://images.pexels.com/photos/2731977/pexels-photo-2731977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          className="  w-48  h-44 max-xl:w-44  max-md:w-32  my-2 mx-5  "
+          className="  w-48  h-44 max-xl:w-44  max-md:w-32  my-2 mx-2  "
           alt=""
         />
         <img

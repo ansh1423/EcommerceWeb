@@ -18,8 +18,26 @@ import Block13 from '../src/contents/home/Block13'
 import Block14 from '../src/contents/home/Block14'
 import Footer from '../src/layouts/Footer'
 import { Products } from '../src/constants/home/Products'
+import { addProduct } from '../src/redux/slices/Product'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+
+
 
 export default function Home() {
+    const dispatch = useDispatch();
+    const product=useSelector((state)=>state.product);
+    
+    useEffect(() => {
+    const getProduct= async () => {
+    
+    const result = await dispatch(addProduct());
+
+     console.log(result)
+    }
+    getProduct();  
+    }, []) 
+  
   return (
     <div>
       <Head>

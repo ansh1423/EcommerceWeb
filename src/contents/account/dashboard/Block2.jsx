@@ -1,7 +1,8 @@
 import { Divider } from '@mui/material'
 import React from 'react'
-
- const Block2 = () => {
+import { useSelector } from 'react-redux'
+const Block2 = () => {
+  
   return (
    
       <div className='mx-2 w-full'>

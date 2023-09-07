@@ -4,8 +4,10 @@ function Block8() {
   return (
     <>
     <div className='py-5'>
-    <h1 className='flex text-5xl max-sm:text-3xl justify-center text-center font-semibold w-full my-2 py-2 items-center'>INSTAGRAM</h1>
-    <p className='flex justify-center my-1'>Follow us on Instagram @mochishoesinand tag us for a chance to be featured.</p>
+    <h1 className='flex text-6xl max-lg:text-3xl max-md:hidden pt-16 justify-center font-[200px] w-full h-32' style={{ fontFamily: "'Bebas Neue', sans-serif" }}>INSTAGRAM</h1>
+    <p className='flex justify-center my-1'>Follow us on Instagram  <span style={{ color: 'red' }}> @mochishoesinand </span> and tag us for a chance to be featured.</p>
+
+
     </div>
 </>
   )

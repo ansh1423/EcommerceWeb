@@ -13,17 +13,23 @@ import {
   AccordionDetails,
   AccordionSummary,
   Typography,
+  styled,
 } from "@mui/material";
 import { Margin } from "@mui/icons-material";
 
 function Footer() {
+  const ColoredLocalShippingIcon = styled(LocalShippingIcon)(({ theme }) => ({
+    fontSize: '50px',
+    color: '#36C7E7', // Change this color value to whatever you prefer
+  }));
+  
   return (
     <>
       <div className="flex flex-col h-full">
         <div className="w-full h-auto py-18 bg-gray-200 border-8 border-solid border-slate-100">
           <div className="my-2 py-4 px-1  justify-around max-lg:flex-col max-lg:justify-center flex">
             <div className="max-lg:my-5 py-3 m">
-              <h1 className="text-xs font-thin py-3   mx-3  max-lg:text-center ">
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px] ">
                 PAY SECURELY BY
               </h1>
               <img
@@ -32,20 +38,21 @@ function Footer() {
               />
             </div>
             <div className="flex max-lg:justify-around  max-md:flex-col">
-              <h1 className="text-xs font-thin flex  gap-2 max-md:justify-center items-center mx-3 max-md:py-2">
-                <Forward10Icon sx={{ fontSize: "35px" }} /> 10 DAYS FREE RETURN
+              <h1 className="text-xs  flex text-[12px] font-[700px] gap-2 max-md:justify-center items-center mx-3 max-md:py-2">
+               <Forward10Icon className="text-cyan-500 text-[50px]"/> 10 DAYS FREE RETURN
               </h1>
 
-              <h1 className="text-xs font-thin  flex gap-2 max-md:justify-center  items-center mx-8 py-3 max-md:py-2">
+              <h1 className="text-xs  flex gap-2 text-[12px] font-[700px] max-md:justify-center  items-center mx-8 py-3 max-md:py-2">
                 {" "}
-                <LocalShippingIcon sx={{ fontSize: "35px"  }} /> FREE DELIVERY
+                <ColoredLocalShippingIcon  className="text-cyan-500 text-[50px]" /> FREE DELIVERY
               </h1>
 
-              <h1 className="text-xs font-thin gap-2 flex max-md:justify-center items-center mx-3 max-md:py-2">
+              <h1 className="text-xs flex  text-[12px] font-[700px] gap-2 max-md:justify-center items-center mx-3 max-md:py-2">
                 {" "}
-                <AddCardIcon sx={{ fontSize: "35px" }} /> CASH ON DILEVERY
+                <AddCardIcon  className="text-cyan-500 text-[50px]" /> CASH ON DILEVERY
               </h1>
             </div>
+            <div class="border-l-4 border-black ..."></div>
             <div>
               <h1 className="flex  text-xs max-lg:justify-center max-lg:py-3">
                 Follow us{" "}
@@ -69,53 +76,53 @@ function Footer() {
           </div>
           <div className="flex justify-evenly w-full  px-4">
             <div className="max-sm:hidden">
-              <h1 className="text-sm py-2 text-slate-500 ">CUSTOMER</h1>
-              <h1 className="text-xs font-medium py-1">CONTACT US</h1>
-              <h1 className="text-xs py-1 font-medium">SHOE CARE TIPS</h1>
-              <h1 className="text-xs py-1 font-medium">FOOT CARE TIPS</h1>
-              <h1 className="text-xs py-1 font-medium">BUYING GUIDE</h1>
-              <h1 className="text-xs py-1 font-medium">TRACK ORDER</h1>
-              <h1 className="text-xs py-1 font-medium">FOOT CARE TIPS</h1>
-              <h1 className="text-xs py-1 font-medium">BUYING GUIDE</h1>
-              <h1 className="text-xs py-1 font-medium">TRACK ORDER</h1>
+              <h1 className="text-[15px] font-[600px] py-2 text-[#4D4D4D] ">CUSTOMER</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">CONTACT US</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">SHOE CARE TIPS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FOOT CARE TIPS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">BUYING GUIDE</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">TRACK ORDER</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FOOT CARE TIPS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">BUYING GUIDE</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">TRACK ORDER</h1>
             </div>
 
             <div className="max-sm:hidden">
-              <h1 className="text-sm py-2 text-slate-500">KNOW US</h1>
-              <h1 className="text-xs py-1 font-medium">ABOUT</h1>
-              <h1 className="text-xs py-1 font-medium">CAREERS</h1>
-              <h1 className="text-xs py-1 font-medium">FAQ'S</h1>
-              <h1 className="text-xs py-1 font-medium">STORE LOCATER</h1>
-              <h1 className="text-xs py-1 font-medium">SIDE MAPS</h1>
-              <h1 className="text-xs py-1 font-medium">FAQ'S</h1>
-              <h1 className="text-xs py-1 font-medium">STORE LOCATER</h1>
-              <h1 className="text-xs py-1 font-medium">SIDE MAPS</h1>
+              <h1 className="text-[15px] font-[600px] py-2 text-[#4D4D4D]">KNOW US</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">ABOUT</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">CAREERS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FAQ'S</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">STORE LOCATER</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">SIDE MAPS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FAQ'S</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">STORE LOCATER</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">SIDE MAPS</h1>
             </div>
 
             <div className="max-sm:hidden">
-              <h1 className="text-sm py-2 text-slate-500">POLICIES</h1>
-              <h1 className="text-xs py-1 font-medium">TERMS & CONDITIONS</h1>
-              <h1 className="text-xs py-1 font-medium">
+              <h1 className="text-[15px] font-[600px] py-2 text-[#4D4D4D]">COLLECIONS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">TERMS & CONDITIONS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">
                 SHIPPING & RETURN POLICY
               </h1>
             </div>
             <div className="max-sm:hidden">
-              <h1 className="text-sm py-2 text-slate-500">POLICIES</h1>
-              <h1 className="text-xs py-1 font-medium">METRO SHOES</h1>
-              <h1 className="text-xs py-1 font-medium">WALKWAY SHOES</h1>
-              <h1 className="text-xs py-1 font-medium">FITFLOP</h1>
+              <h1 className="text-[15px] font-[600px] py-2 text-[#4D4D4D]">POLICIES</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">METRO SHOES</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">WALKWAY SHOES</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FITFLOP</h1>
               
             </div>
             <div className="max-sm:hidden">
-              <h1 className="text-sm py-2 text-slate-500">MY MOCHI</h1>
-              <h1 className="text-xs py-1 font-medium">LOYALTY PROGRAM</h1>
+              <h1 className="text-[15px] font-[600px] py-2 text-[#4D4D4D]">MY MOCHI</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">LOYALTY PROGRAM</h1>
             </div>
 
             <div className="max-sm:hidden">
-              <h1 className="text-sm py-2 text-slate-500">PATNERS</h1>
-              <h1 className="text-xs py-1 font-medium">METRO SHOES</h1>
-              <h1 className="text-xs py-1 font-medium">WALKWAY SHOES</h1>
-              <h1 className="text-xs py-1 font-medium">FITFLOP</h1>
+              <h1 className="text-[15px] font-[600px] py-2 text-[#4D4D4D]">PATNERS</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">METRO SHOES</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">WALKWAY SHOES</h1>
+              <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FITFLOP</h1>
             </div>
 
             <div className="max-sm:w-full">
@@ -128,11 +135,11 @@ function Footer() {
                   <Typography>Customer</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <h1 className="text-xs py-1 font-medium">CONTACT US</h1>
-                  <h1 className="text-xs py-1 font-medium">SHOE CARE TIPS</h1>
-                  <h1 className="text-xs py-1 font-medium">FOOT CARE TIPS</h1>
-                  <h1 className="text-xs py-1 font-medium">BUYING GUIDE</h1>
-                  <h1 className="text-xs py-1 font-medium">TRACK ORDER</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">CONTACT US</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">SHOE CARE TIPS</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FOOT CARE TIPS</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">BUYING GUIDE</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">TRACK ORDER</h1>
                 </AccordionDetails>
               </Accordion>
               <Accordion sx={{ display: { sm: "none" }, width: "100%" }}>
@@ -144,11 +151,11 @@ function Footer() {
                   <Typography>Know us</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <h1 className="text-xs py-1 font-medium">ABOUT</h1>
-                  <h1 className="text-xs py-1 font-medium">CAREERS</h1>
-                  <h1 className="text-xs py-1 font-medium">FAQ'S</h1>
-                  <h1 className="text-xs py-1 font-medium">STORE LOCATER</h1>
-                  <h1 className="text-xs py-1 font-medium">SIDE MAPS</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">ABOUT</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">CAREERS</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FAQ'S</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">STORE LOCATER</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">SIDE MAPS</h1>
                 </AccordionDetails>
               </Accordion>
               <Accordion sx={{ display: { sm: "none" } }}>
@@ -160,7 +167,7 @@ function Footer() {
                   <Typography>Carrer us</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <h1 className="text-xs py-1 font-medium">
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">
                     TERM AND CONDITION
                   </h1>
                 </AccordionDetails>
@@ -174,13 +181,13 @@ function Footer() {
                   <Typography>About</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <h1 className="text-xs py-1 font-medium">
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">
                     TERM AND CONDITION
                   </h1>
-                  <h1 className="text-xs py-1 font-medium">
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">
                     SHIPPING & RETURN POLICY
                   </h1>
-                  <h1 className="text-xs py-1 font-medium">PRIVACY POLICY</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">PRIVACY POLICY</h1>
                 </AccordionDetails>
               </Accordion>
               <Accordion sx={{ display: { sm: "none" } }}>
@@ -192,11 +199,11 @@ function Footer() {
                   <Typography>My Moto</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <h1 className="text-xs py-1 font-medium">PATNERS</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">PATNERS</h1>
                   <h1 className="text-sm py-2 font-semibold">PATNERS</h1>
-                  <h1 className="text-xs py-1 font-medium">METRO SHOES</h1>
-                  <h1 className="text-xs py-1 font-medium">WALKWAY SHOES</h1>
-                  <h1 className="text-xs py-1 font-medium">FITFLOP</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">METRO SHOES</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">WALKWAY SHOES</h1>
+                  <h1 className="text-[12px] py-1 cursor-pointer hover:underline font-[700px]">FITFLOP</h1>
                 </AccordionDetails>
               </Accordion>
             </div>

@@ -37,8 +37,8 @@ export const Block3 = () => {
         </Dialog>
         <Divider />
         {/* <p className="py-1">{state.username}</p> */}
-        <p className="py-1">anshyadav42495@gmail.com</p>
-        <p className="py-1">7652018013</p>
+        <p className="py-1">{user.email}</p>
+        <p className="py-1">{user.phone}</p>
       </div>
       <div>
         <div className="flex gap-2 py-2">
@@ -62,12 +62,12 @@ export const Block3 = () => {
         <Divider />
         <Divider />
 
-        <p className="py-1">Ansh Yadav</p>
-        <p className="py-1">anshyadav42495@gmail.com</p>
-        <p className="py-1">7652018013</p>
-        <p className="py-1">Ansh Yadav</p>
-        <p className="py-1">anshyadav42495@gmail.com</p>
-        <p className="py-1">7652018013</p>
+        <p className="py-1">{user.firstName}</p>
+        <p className="py-1">{user.email}</p>
+        <p className="py-1">{user.phone}</p>
+        <p className="py-1">{user.name}</p>
+        <p className="py-1">{user.name}</p>
+        <p className="py-1">{user.email}</p>
         <p className="py-1">anshyadav42495@gmail.com</p>
       </div>
       <div>

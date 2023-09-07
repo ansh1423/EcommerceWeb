@@ -8,17 +8,47 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useDispatch, useSelector } from 'react-redux';
+import { createCart } from '../../redux/slices/Cart';
+import { useRouter } from 'next/router';
 function Block4() {
+  const data = useSelector((state)=>state.product.product)
+  const dataItem =  data && data.length>0 && data?.filter((item)=> item.id === "64e353cea474fca8fa0107eb")
+  console.log(dataItem);
+  const dispatch = useDispatch()
+  const {user} = useSelector((state)=> state.user)
+  
+  const router=useRouter();
+  const addCart = async (productId) => {
+    const data = {
+      "userId":user.id,
+      "products":[{
+        "productId":productId,
+        "qty":1
+      }]
+    }
+    console.log(data)
+   const result=  await dispatch(createCart(data))
+   console.log(result);
+   if(result){
+    router.push('/Cart');
+
+   }
+   
+  }
+
+
+  console.log(dataItem && dataItem[0] && dataItem[0].id)
   return (
     <>
     <div className='mx-8'>
-    <h1 className='text-2xl font-normal my-1'>Mochi</h1>
+    <h1 className='text-2xl font-normal my-1'>{dataItem && dataItem[0] && dataItem[0].category}</h1>
     <div className='flex justify-between '>
-    <p className='text-base'>Men Tan Formal Lace Up</p>
+    <p className='text-base'>{dataItem && dataItem[0] && dataItem[0].title && dataItem[0].title.longTitle}</p>
     <p className="mx-9 "><ShareIcon  /></p>
     </div>
-   <p className='text-xs py-1'> SKU: 19-120-23-40</p> 
-    <p className='text-3xl font-medium'>Rs. 39,990</p>
+   <p className='text-xs py-1'>{dataItem && dataItem[0] && dataItem[0].createdAt}</p> 
+    <p className='text-3xl font-medium'>Rs.{ dataItem && dataItem[0] && dataItem[0].price && dataItem[0].price.mrp}</p>
     <p className='text-sm font-medium text-teal-400'>`(Inclusive of all taxes)`</p>
     <p className='my-2 py-2 font-bold'>`SELECT SIZE (UK)`</p>
     <div className='flex mx-1 px-2'> 
@@ -52,7 +82,7 @@ function Block4() {
         
     </div>
      <div>
-        <button className="border py-2 my-4 px-4  rounded-md border-neutral-400">ADD TO CARD</button>
+        <button onClick={()=>addCart(dataItem && dataItem[0] && dataItem[0].id)} className="border py-2 my-4 px-4  rounded-md border-neutral-400">ADD TO CARD</button>
         <button className=" py-2 px-24 rounded-md mx-4 bg-teal-500 text-white ">BUY NOW</button>
      </div>
      <div>

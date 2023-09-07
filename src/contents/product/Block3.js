@@ -1,5 +1,6 @@
 import { Box, styled } from '@mui/material';
 import React from 'react'
+import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 // import { baseUrl } from "./config";
 const Container = styled(Box)(({ theme }) => ({
@@ -55,11 +56,15 @@ const Image = styled("img")(({ theme }) => ({
       },
     }))
 function Block3 (){
+  const data = useSelector((state)=>state.product.product)
+  const dataItem =  data && data.length>0 && data?.filter((item)=> item.id === "64e353cea474fca8fa0107eb")
+  console.log(dataItem);
+  
     const settings = {
-        customPaging: function(i) {
+        customPaging: function(index) {
           return (
             <a>
-              <Image1 src="https://admin.mochishoes.com/product/19-120/660/19-120R23.jpg" />
+              <Image1 src={dataItem && dataItem.length>0 && dataItem[0].productImages && dataItem[0].productImages[index].path} />
             </a>
           );
         },
@@ -71,20 +76,24 @@ function Block3 (){
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1
-      };
+      };    
+      
   return (
     <Container>
     {/* <h2>Custom Paging</h2> */}
     <Slider {...settings}>
+      {dataItem &&  dataItem.length>0 && dataItem[0].productImages.length>0 && dataItem[0].productImages.map((item)=>(
       <ImageWrapper>
-        <Image src='https://admin.mochishoes.com/product/19-120/660/19-120R23.jpg' />
+      <Image src={item.path} />
+      </ImageWrapper>
+      ))}
+      {/* </ImageWrapper>
+      <ImageWrapper>
       </ImageWrapper>
       <ImageWrapper>
         <Image src='https://admin.mochishoes.com/product/19-120/660/19-120M23.jpg' />
       </ImageWrapper>
-      <ImageWrapper>
-        <Image src='https://admin.mochishoes.com/product/19-120/660/19-120M23.jpg' />
-      </ImageWrapper>
+      )} */}
     </Slider>
   </Container>
 );

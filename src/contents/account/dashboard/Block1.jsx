@@ -14,6 +14,7 @@ const Item = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 export const Block1 = () => {
+  
   return (
     <>
     <div className='mt-36 mb-9'>

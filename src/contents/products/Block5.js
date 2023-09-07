@@ -14,59 +14,58 @@ function Block5() {
           <Typography>Size</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Box>
-           <div className='flex'>
-            <div className='border-2 w-11  h -8 border-black flex items-center justify-center  bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                4
-            </div>
-            <div className='border-2   h -80 border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                5
-            </div>
-            <div className='border-2   h -80 border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                6
-            </div>
-            <div className='border-2   h -80 border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                7
-            </div>
-           </div>
-           <div className='flex'>
-            <div className='border-2   h -80 border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                8
-            </div>
-            <div className='border-2   border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                9
-            </div>
-            <div className='border-2 border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                10
-            </div>
-            <div className='border-2  border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                11
-            </div>
-           </div>
-           <div className='flex'>
-            <div className='border-2  border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                12
-            </div>
-            <div className='border-2  border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                41
-            </div>
-            <div className='border-2  border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                42
-            </div>
-            <div className='border-2 w border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-            43
-            </div>
-           </div>
-           <div className='flex'>
-            <div className='border-2  border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                44
-            </div>
-            <div className='border-2  border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1 '>
-                45
-            </div>
-           
-           </div>
-          </Box>
+        <Box>
+  <div className='flex'>
+    <div className='common-button'>
+      4
+    </div>
+    <div className='common-button'>
+      5
+    </div>
+    <div className='common-button'>
+      6
+    </div>
+    <div className='common-button'>
+      7
+    </div>
+  </div>
+  <div className='flex'>
+    <div className='common-button'>
+      8
+    </div>
+    <div className='common-button'>
+      9
+    </div>
+    <div className='common-button'>
+      10
+    </div>
+    <div className='common-button'>
+      11
+    </div>
+  </div>
+  <div className='flex'>
+    <div className='common-button'>
+      12
+    </div>
+    <div className='common-button'>
+      41
+    </div>
+    <div className='common-button'>
+      42
+    </div>
+    <div className='common-button'>
+      43
+    </div>
+  </div>
+  <div className='flex'>
+    <div className='common-button'>
+      44
+    </div>
+    <div className='common-button'>
+      45
+    </div>
+  </div>
+</Box>
         </AccordionDetails>
       </Accordion>
     <Accordion>

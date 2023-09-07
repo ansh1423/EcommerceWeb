@@ -2,13 +2,17 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  AppBar,
+  Badge,
   Dialog,
   Typography,
 } from "@mui/material";
@@ -16,10 +20,12 @@ import MenuItems from "./MenuItems/index";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import Login from "../../components/auth/Login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/slices/Auth";
 const index = (props) => {
   const dispatch=useDispatch();
+  const user = useSelector((state)=> state?.auth?.user)
+  console.log(user)
   
 
   useEffect(()=>{
@@ -34,48 +40,57 @@ const index = (props) => {
   const handleClick = () => {
     setDilogOpen(true);
   };
+  const cartItem =useSelector((state)=>state.cart.cart)
+console.log(cartItem);
   return (
-    <div className="my-4 mt-4 ">
+    <div class=''>
+    <div className="my-4 mb-[125px] ">
       <Dialog open={dilogOpen}>
         <Login setDilogOpen={setDilogOpen} />
       </Dialog>
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <MenuItems />
       </Drawer>
-      <nav className="fixed top-0 z-50  bg-white w-full">
+      <AppBar className="fixed top-0 bg-white text-black  w-full z-10">
         <div className="flex mt-4 mx-4 justify-between">
-          <div className="flex justify-start items-center px-2 ">
-            <MenuIcon className="sm:hidden" onClick={() => setOpen(true)} />
+          <div className="flex justify-start items-center  ">
+            <MenuIcon className="md:hidden" onClick={() => setOpen(true)} />
             <img
               src="https://www.mochishoes.com/images-mochi/mochi-logo.webp"
               alt=""
-              className="w-60 max-md:w-36 max-md:h-9 h-14 mx-1  my-1"
+              className="w-full max-md:w-36 max-md:h-9 h-16 my-1"
             />
           </div>
           <div className="flex  items-center  ">
-            <div className="relative text-sm  max-sm:hidden">
+            <div className="relative text-sm  max-md:hidden">
               <input
                 type="search"
                 name=""
                 id=""
-                placeholder="What are you looking for?"
-                className="border-cyan-500 w-80  h-9 border-2 max-sm:hidden outline-1 px-2 py-3"
+                placeholder="Search for Men Footwear, Women Footwear & more..."
+                className="border-cyan-500 w-96  h-10 border-2 max-md:hidden outline-1 px-2 py-3"
               />
               <SearchIcon
                 sx={{ position: "absolute", top: "8px", right: "10px " }}
               />
             </div>
-            <p className="px-2 py-3">
-              <FavoriteBorderIcon sx={{ fontSize: "30px" }} />
+            <p className="px-3 py-3">
+              <FavoriteBorderOutlinedIcon sx={{ fontSize: "30px" }} />
             </p>
+           {user ?  <p className="px-2 py-3">
+              {user?.firstName}
+            </p> : 
+             <p className="px-2 py-3">
+             <PermIdentityOutlinedIcon
+               sx={{ fontSize: "30px" }}
+               onClick={handleClick}
+             />
+           </p>
+            }
             <p className="px-2 py-3">
-              <PermContactCalendarIcon
-                sx={{ fontSize: "30px" }}
-                onClick={handleClick}
-              />
-            </p>
-            <p className="px-2 py-3">
-              <ShoppingBagIcon sx={{ fontSize: "30px" }} />
+            <Badge badgeContent={cartItem.length} color="secondary">
+              <ShoppingBagOutlinedIcon sx={{ fontSize: "30px" }} />
+            </Badge>
             </p>
           </div>
         </div>
@@ -104,7 +119,8 @@ const index = (props) => {
             FILA
           </li>
         </ul>
-      </nav>
+      </AppBar>
+    </div>
     </div>
   );
 };

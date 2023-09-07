@@ -7,8 +7,9 @@ const SliderContainer = styled("div")({
     // height:"auto",
 })
 const ImageContainer = styled(Card)(({ theme }) => ({
+    padding:'5px',
     width:'19vw',
-    height:'250px',
+    height:'230px',
     display:"flex",
     // alignItems:"center",
     justifyContent:'center',
@@ -35,7 +36,7 @@ const ImageContainer = styled(Card)(({ theme }) => ({
 const Image = styled("img")(({ theme }) => ({
    
     width:"100%",
-    height:"90%",
+    height:"87%",
     objectFit:"contain",
     [theme.breakpoints.down('md')]: {
         width:"100%",
@@ -51,8 +52,8 @@ const Image = styled("img")(({ theme }) => ({
     // },
 }));
 const Head = styled("h3")({
-    fontSize: "16px",
-    fontWeight:"800",
+    fontSize: "15px",
+    fontWeight:"700",
     paddingLeft:'15px',
     paddingTop:'0px',
     // textAlign:"center",
@@ -65,7 +66,7 @@ const Head = styled("h3")({
        },
 })
 const Para = styled("p")({
-    fontSize:"14px",
+    fontSize:"15px",
     fontWeight:"600",
     paddingLeft:'15px',
     paddingBottom:'50px',
@@ -80,13 +81,15 @@ const Para = styled("p")({
 })
 
 export default function Item({posterLinks}) {
-  return (
+    console.log(posterLinks);
+    return (
     <SliderContainer>
         <ImageContainer sx={{borderRadius:'5px',}}>
-            <Image src={posterLinks.img} />
+            <Image src={posterLinks.image} />
             <Head >{posterLinks.name}</Head>
-            <Head>{posterLinks.title}</Head>
-            <Para>{posterLinks.price}</Para>
+            <Head>{posterLinks.title.shortTitle}</Head>
+            <Head>{posterLinks.title.longTitle}</Head>
+            <Para>Rs.{posterLinks.price.mrp}.00</Para>
         </ImageContainer>
     </SliderContainer>
   )

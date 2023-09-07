@@ -9,6 +9,7 @@ const slice = createSlice({
     reducers:{
         getUser(state,action){
          state.user = action.payload.data;
+        
         },
         updateUser(state,action){
             let data = action.payload.data;
@@ -30,14 +31,11 @@ export const {reducer} = slice;
 
 
 
-
 export const getUser = () => async (dispatch) =>{
 
-    console.log('result')
     const result = await authApi.getUser();
-    console.log("result",result)
+
     if(result){
-        console.log(result)
         //dispatch for send the data and selector for fetch the data
         await dispatch(slice.actions.getUser(result));
         return true;

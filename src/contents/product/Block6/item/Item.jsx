@@ -80,13 +80,14 @@ const Para = styled("p")({
 })
 
 export default function Item({posterLinks}) {
+    console.log(posterLinks);
   return (
     <SliderContainer>
         <ImageContainer sx={{borderRadius:'5px',}}>
-            <Image src={posterLinks.img} />
-            <Head>{posterLinks.name}</Head>
-            <Head>{posterLinks.title}</Head>
-            <Para>{posterLinks.price}</Para>
+            <Image src={posterLinks.image} />
+            <Head>{posterLinks.category}</Head>
+            <Head>{posterLinks.title.shortTitle}</Head>
+            <Para>{posterLinks.price.mrp}</Para>
         </ImageContainer>
     </SliderContainer>
   )

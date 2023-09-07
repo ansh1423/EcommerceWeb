@@ -10,8 +10,8 @@
 width: 4vw;
 } */
 body{
-    /* font-family: 'Bebas Neue', sans-serif; */
-font-family: 'Mulish', sans-serif;
+  
+    font-family: 'Mulish', sans-serif;
 }
 .slick-next{
     right:10px !important;
@@ -28,6 +28,10 @@ font-family: 'Mulish', sans-serif;
     border-bottom-right-radius: 7px;
     z-index: 200;
 }
+.common-button {
+    @apply border-2 border-black flex items-center justify-center w-11 h-8 bg-slate-50 my-1 mx-2 py-1 px-1;
+  }
+  
 
 .slick-dots{
     display: flex !important;
