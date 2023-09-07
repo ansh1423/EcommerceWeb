@@ -82,8 +82,8 @@ function Block3 (){
     <Container>
     {/* <h2>Custom Paging</h2> */}
     <Slider {...settings}>
-      {dataItem &&  dataItem.length>0 && dataItem[0].productImages.length>0 && dataItem[0].productImages.map((item)=>(
-      <ImageWrapper>
+      {dataItem &&  dataItem.length>0 && dataItem[0].productImages.length>0 && dataItem[0].productImages.map((item,index)=>(
+      <ImageWrapper key={index}>
       <Image src={item.path} />
       </ImageWrapper>
       ))}

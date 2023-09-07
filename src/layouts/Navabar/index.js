@@ -22,7 +22,7 @@ import { useState } from "react";
 import Login from "../../components/auth/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/slices/Auth";
-const index = (props) => {
+const Index = (props) => {
   const dispatch=useDispatch();
   const user = useSelector((state)=> state?.auth?.user)
   console.log(user)
@@ -125,4 +125,4 @@ console.log(cartItem);
   );
 };
 
-export default index;
+export default Index;

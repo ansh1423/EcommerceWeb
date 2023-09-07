@@ -11,9 +11,9 @@ const router=useRouter();
   return (
     <>
     <div className='flex flex-wrap gap-10'>
-    {product && product.length>0 && product.map((item)=>(
+    {product && product.length>0 && product.map((item,index)=>(
 
-        <Block4 data={item} />
+        <Block4 data={item} key={index} />
    ))} 
        
     </div>

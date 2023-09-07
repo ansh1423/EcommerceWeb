@@ -35,8 +35,8 @@ function Block3() {
       <div>
         {data &&
           data.length > 0 &&
-          data.map((item) => (
-            <div className="flex justify-between ">
+          data.map((item,index) => (
+            <div key={index} className="flex justify-between ">
               <div className="mx-4 my-4  flex">
                 <div className="flex py-4 mx-3 ">
                   <div className="text-sm">Items(1) </div>
