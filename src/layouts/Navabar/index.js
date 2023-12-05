@@ -22,12 +22,15 @@ import { useState } from "react";
 import Login from "../../components/auth/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/slices/Auth";
-const Index = (props) => {
-  const dispatch=useDispatch();
-  const user = useSelector((state)=> state?.auth?.user)
-  console.log(user)
-  
+import { useRouter } from "next/router";
+import { addProduct, getProduct } from "../../redux/slices/Product";
 
+const Index = ({setQuery}) => {
+  const router = useRouter()
+  const dispatch=useDispatch();
+  const auth = useSelector((state)=> state.user.user)
+  const [filter,setFilter] = useState()
+  
   useEffect(()=>{
    const getUserData = async()=>{
     await dispatch(getUser())
@@ -42,9 +45,26 @@ const Index = (props) => {
   };
   const cartItem =useSelector((state)=>state.cart.cart)
 console.log(cartItem);
+
+const fetchProducts = async(state) => {
+   let result = await dispatch(addProduct(filter))
+   if(result){
+    return true
+   }
+}
+
+useEffect(()=>{
+  fetchProducts()
+},[filter])
+
+const handleQuery = (query) => {
+  router.push(`/products/${query}`)
+   setQuery(query)
+  setFilter({"category":query})
+}
   return (
     <div class=''>
-    <div className="my-4 mb-[125px] ">
+    <div className="my-4 mb-[127px] ">
       <Dialog open={dilogOpen}>
         <Login setDilogOpen={setDilogOpen} />
       </Dialog>
@@ -77,15 +97,15 @@ console.log(cartItem);
             <p className="px-3 py-3">
               <FavoriteBorderOutlinedIcon sx={{ fontSize: "30px" }} />
             </p>
-           {user ?  <p className="px-2 py-3">
-              {user?.firstName}
-            </p> : 
-             <p className="px-2 py-3">
+           {auth?.email  ?  (<p className="px-2 py-3 w-10 h-10 flex justify-center items-center text-lg font-bold bg-red-400 uppercase rounded-full">
+              {auth?.email?.slice(0,1)}
+            </p>) : 
+             (<p className="px-2 py-3">
              <PermIdentityOutlinedIcon
                sx={{ fontSize: "30px" }}
                onClick={handleClick}
              />
-           </p>
+           </p>)
             }
             <p className="px-2 py-3">
             <Badge badgeContent={cartItem.length} color="secondary">
@@ -96,26 +116,26 @@ console.log(cartItem);
         </div>
 
         <ul className="flex max-sm:hidden justify-center  my-2 text-xs font-bold">
-          <li className="mx-6 max-md:text-xs text-sm font-bold max-lg:mx-1">
+          <li  onClick={()=>handleQuery('Men')} className="mx-6 cursor-pointer max-md:text-xs text-sm font-bold max-lg:mx-1">
             MEN
           </li>
-          <li className="mx-6 max-md:text-xs text-sm font-bold max-lg:mx-1">
+          <li onClick={()=>handleQuery('Women')}className="mx-6  cursor-pointer max-md:text-xs  text-sm font-bold max-lg:mx-1">
             WOMEN
           </li>
-          <li className="mx-6 max-md:text-xs text-sm font-bold max-lg:mx-1">
+          <li onClick={()=>handleQuery('Kids')} className="mx-6 cursor-pointer max-md:text-xs text-sm font-bold max-lg:mx-1">
             KIDS
           </li>
-          <li className="mx-6 max-md:text-xs text-sm font-bold max-lg:mx-1">
+          <li onClick={()=>handleQuery('Accessories')} className="mx-6 cursor-pointer max-md:text-xs text-sm font-bold max-lg:mx-1">
             ACCESSORIES
           </li>
-          <li className="mx-6 max-md:text-xs text-sm font-bold max-lg:mx-1">
+          <li onClick={()=>handleQuery('Bags')} className="mx-6 cursor-pointer max-md:text-xs text-sm font-bold max-lg:mx-1">
             BAGS
           </li>
-          <li className="mx-6 text-sm font-bold max-lg:mx-2">BRAND</li>
+          <li onClick={()=>handleQuery('Sale')} className="mx-6  cursor-pointer text-sm font-bold max-lg:mx-2">BRAND</li>
           <li className="mx-6 max-md:text-xs text-sm text-red-600 font-bold max-lg:mx-2">
             SALE
           </li>
-          <li className="mx-6 text-sm max-md:text-xs font-bold max-lg:mx-2">
+          <li onClick={()=>handleQuery('Fila')} className="mx-6 cursor-pointer text-sm max-md:text-xs font-bold max-lg:mx-2">
             FILA
           </li>
         </ul>

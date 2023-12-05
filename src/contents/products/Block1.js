@@ -13,17 +13,17 @@ import {
   
   return (
     <>
-    <div className='text-base mx-8'>
+    <div className='text-base mx-5'>
         <p className=' text-[14px] font-[700px] my-3 max-lg:hidden'>Home  /  Footwear  /  Men Shoes</p>
       <div className='flex'>
 
-        <p className='m-[3px,0px,0px] font-[500px] w-72 text-[16px] max-lg:hidden '>Men's Shoes - 594 items</p>
+        <p className='m-[2px,0px,0px] font-[400px] w-72 text-[14px] max-lg:hidden '>Men's Shoes - 594 items</p>
         <div> 
         <h1 className="text-[25px] font-semibold">Upgrade Your Style Quotient with Stylish Shoes for Men</h1>
        <p className='  flex text-[16px]   py-2 my-2 '> Along with wearing fashionable attire, a dashing pair of shoes is just as essential to complement an outfit.</p>
 
    
-    <div className='flex justify-end'>
+    {/* <div className='flex justify-end'>
     <Accordion open={openAcc1}>
         <AccordionHeader onClick={handleOpenAcc1}>What is Material Tailwind?</AccordionHeader>
         <AccordionBody>
@@ -32,7 +32,7 @@ import {
           ourselves and actualize our dreams.
         </AccordionBody>
       </Accordion>    
-    </div>
+    </div> */}
 
         </div>
     </div>

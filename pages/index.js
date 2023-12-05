@@ -16,22 +16,25 @@ import Block11 from '../src/contents/home/Block11'
 import Block12 from '../src/contents/home/Block12'
 import Block13 from '../src/contents/home/Block13'
 import Block14 from '../src/contents/home/Block14'
+import Block15 from '../src/contents/home/Block15'
 import Footer from '../src/layouts/Footer'
 import { Products } from '../src/constants/home/Products'
 import { addProduct } from '../src/redux/slices/Product'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 
 export default function Home() {
+
     const dispatch = useDispatch();
     const product=useSelector((state)=>state.product);
-    
+    const [filter,setfilter]=useState({})
     useEffect(() => {
     const getProduct= async () => {
     
     const result = await dispatch(addProduct());
+    
 
      console.log(result)
     }
@@ -52,6 +55,7 @@ export default function Home() {
             <Block1/>
             <Block2/>
              <Block3/>
+           <Block15/>
            <Block4/>
            <Block5  sliderData = {Products} />
            <Block6/>
@@ -63,6 +67,7 @@ export default function Home() {
            <Block12/>
            <Block13/>
            <Block14/>
+
            <Footer/>  
 
          

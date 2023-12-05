@@ -56,7 +56,7 @@ const Image = styled("img")({
 });
 
 const SliderItem = ({ posterLinks }) => {
-   console.log(posterLinks);
+   
   return (
     <>
       <SliderContainer sx={{backgroundColor:"black"}}>

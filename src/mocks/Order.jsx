@@ -5,7 +5,7 @@ class OrderApi{
     async getOrder(id){
       // ${process.env.NEXT_PUBLIC_HOST}
       console.log("data from cart");
-       const response = await axios.get(`http://localhost:5000/userapp/order/get/${id}`,{
+       const response = await axios.get(`${process.env.NEXT_PUBLIC_HOST}/userapp/order/get/${id}`,{
       
         method: "get",
         headers: { 
@@ -26,11 +26,11 @@ class OrderApi{
 
       const data={
         
-            "query":"",
+            "query":{},
             "options": {
               "collation": "",
               "sort": {"name":1},
-              "populate": "products",
+              "populate": "products.productId",
               "projection": "",
               "lean": false,
               "leanWithId": true,
@@ -47,7 +47,7 @@ class OrderApi{
           }
         // ${process.env.NEXT_PUBLIC_HOST}
         console.log("data from cart");
-         const response = await axios.post(`https://api.techpyro.com/api/userapp/order/list`,data,{
+         const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/order/list`,data,{
         
           method: "post",
           headers: { 

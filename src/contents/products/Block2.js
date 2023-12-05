@@ -44,7 +44,7 @@ function Block2() {
   return (
     <>
     <div class=' border-b border-slate-300 max-md:hidden'>
-    <div className='flex mx-4 pb-2  items-end justify-between'>
+    <div className='flex pb-2  items-end justify-between'>
    <div className='text-[15px]  font-[600px] '>
      <p className='py-2  '>FILTERS</p>
    </div>

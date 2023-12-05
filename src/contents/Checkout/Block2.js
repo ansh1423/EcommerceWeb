@@ -7,7 +7,7 @@ function Block2() {
   let totalPrice =0;
   
  for(let i =0;i<item.length;i++){
- let ans = (item[i].products[0].productId.price.mrp)*(item[i].products[0].qty)
+ let ans = (item[i]?.products[0]?.productId?.price.mrp)*(item[i]?.products[0].qty)
   // console.log(ans)
  totalPrice=totalPrice+ans; 
  }

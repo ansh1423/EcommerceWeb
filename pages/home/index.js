@@ -19,6 +19,7 @@ import Block14 from '../../src/contents/home/Block14'
 import Footer from '../../src/layouts/Footer'
 import { Products } from '../../src/constants/home/Products'
 
+
 export default function Home() {
   return (
     <div>
@@ -34,7 +35,9 @@ export default function Home() {
             <Block1/>
              <Block2/>
              <Block3/>
+           {/* <Block15/> */}
            <Block4/>
+          
             <Block5  sliderData = {Products} /> 
 
            <Block6/>
@@ -46,7 +49,9 @@ export default function Home() {
            <Block12/>
            <Block13/>
            <Block14/>
-           <Footer/>   
+           <Footer/>
+        
+            
 
          
     </div>

@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function Block3() {
+function Block3({filter,setfilter}) {
  
   return (
     <Box sx={{ flexGrow: 2 }}>
@@ -22,7 +22,7 @@ function Block3() {
        
         <Grid item xs={2.5}>
           <Item>
-            <Block5/>
+            <Block5 filter={filter} setfilter={setfilter}/>
           </Item>
         </Grid>
         <Grid item xs={9.5}>

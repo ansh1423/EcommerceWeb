@@ -1,10 +1,11 @@
 export const HomeSlider = [
     {
         key:1,
-        image:"https://as1.ftcdn.net/v2/jpg/03/83/98/76/1000_F_383987665_4reS0Dd5fA8ErWGhj9EZzSxbXqEqVYOP.jpg"
+        image:"https://admin.mochishoes.com/banner/1701249980MOCHI-WEBSITE_DESKTOP-BANNER_MEN%201.jpg"
     },
     {
        key:2,
-       image:"https://admin.mochishoes.com/banner/1688982707FITFLOP-DESKTOP-BANNER_MOCHI-WEBSITE_1.jpg"
+       image:"https://admin.mochishoes.com/banner/1701250022MOCHI-WEBSITE_DESKTOP-BANNER_WOMEN%202.jpg"
     }
+    
 ]

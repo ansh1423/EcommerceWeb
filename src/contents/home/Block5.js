@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 const SliderContainer = styled('div')({
 width:"99%",
 height:"auto",
-margin:"0 2px 10px 2px",
+margin:"0 0px 0px 0px",
 overflow:"hidden",
 // boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
 // "@media (max-width: 1490px)": {
@@ -31,7 +31,7 @@ const SliderInnerContainer = styled('div')(({ theme }) => ({
   justifyContent:"space-between",
   flexDirection:"column",
  
-  padding:"0 10px 0 20px",
+  padding:"0 0px 0 0px",
   [theme.breakpoints.down('sm')]: {
     padding:"0 0 0 4px",
 },
@@ -65,9 +65,9 @@ console.log(props.sliderData)
         arrows:true,
         infinite: false,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         cssEase: "linear",
         initialSlide:0,

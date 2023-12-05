@@ -3,8 +3,8 @@ import React from 'react'
 function Block10() {
   return (
     <>
-    <div className=''>
-    <div className=' justify-center w-full  px-4 py-2 my-2'>
+    <div className='mx-4'>
+    <div className=' justify-center w-full  px-4  py-2 my-2'>
         <h2 className=' text-[40px] text-center max-md:text-2xl mx-3 px-4 font-[600px] py-2   '>Elevate your fashion game with our collection of stylish shoes</h2>
         <p className='text-sm font-normal px-4'>Whether you are looking for formal shoes for a special occasion or casual ones to wear on a daily basis, you need stylish and comfortable footwear. Luckily, Mochi Shoes brings you an extensive collection of awesome footwear that will not only elevate your style but also make you feel confident!</p>
     </div>

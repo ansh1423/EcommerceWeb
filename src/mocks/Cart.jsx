@@ -23,7 +23,7 @@ class CartApi{
 
     async Cartlist(){
 
-      const data={
+      let data={
         "query":{},
   "options": {
     "collation": "",
@@ -102,6 +102,7 @@ async updateCart(data,id){
   async deleteCart(id){
     console.log("data from cart");
     const response = await axios.delete(`${process.env.NEXT_PUBLIC_HOST}/userapp/cart/delete/${id}`,{
+      method:'delete',
      headers: { 
         "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
         }

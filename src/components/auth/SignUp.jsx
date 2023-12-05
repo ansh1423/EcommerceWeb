@@ -5,16 +5,21 @@ import { SignUpSchema } from "../../schema";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/slices/Auth";
 import { useRouter } from "next/router";
+import CloseIcon from "@mui/icons-material/Close";
 
 const SignUp = () => {
   const router  = useRouter();
   const dispatch = useDispatch()
+
   const intialValue = {
     firstName: "",
     email: "",
     password: "",
     phone: "",
 
+  };
+  const handleClear = () => {
+    router.push("/")
   };
   const { values,errors,touched, handleChange, handleBlur, handleSubmit } = useFormik({
     validationSchema: SignUpSchema,
@@ -32,8 +37,10 @@ const SignUp = () => {
       action.resetForm();
     },
   });
+  
   return (
-    <Box sx={{ width: "full", height:"100%", display: "flex", backgroundColor:"cadetblue", justifyContent: "center" }}>
+    <div className="flex justify-center h-screen bg-rose-200     items-center">
+    <Box sx={{ width: "30%", display: "flex", justifyContent: "center" }}>
       <Box
         sx={{
           width: "400px",
@@ -50,6 +57,10 @@ const SignUp = () => {
         
         }}
       >
+         <CloseIcon
+            onClick={handleClear}
+            sx={{ position: "absolute", top: "12px", left: "90%" }}
+          />
         <Typography className='text-lg '>Sign Up</Typography>
         <form className="flex flex-col w-full " 
           onSubmit={handleSubmit}
@@ -61,7 +72,7 @@ const SignUp = () => {
               value={values.firstName}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="border w-full py-2 text-sm px-2 border-emerald-500"
+              className="border w-full  py-2 text-sm px-2 "
             />
            {errors.firstName && touched.firstName && <div style={{color:'red'}}>{errors.firstName}</div>}
            <h1 className="text-sm py-1">Email</h1>
@@ -94,10 +105,15 @@ const SignUp = () => {
               onBlur={handleBlur}
             />
            {errors.phone && touched.phone && <div style={{color:'red'}}>{errors.phone}</div>}
-           <button className="bg-teal-400 rounded-md my-5 text-white text-sm py-2 px-2" onSubmit={handleSubmit}>Submit</button>
+           <button className="bg-teal-400 rounded-md mt-2 mb-1 text-white text-sm py-2 px-2" onSubmit={handleSubmit}>Submit</button>
+           <div className="flex gap-2 mb-2 text-center justify-center ">
+             <h1>Already have account ? </h1>
+             <h2 className="cursor-pointer o hover:underline" >Login Now</h2>
+           </div>
         </form>
       </Box>
     </Box>
+    </div>
   );
 };
 

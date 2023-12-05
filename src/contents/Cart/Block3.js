@@ -120,7 +120,7 @@ function Block3() {
           CONTINUE SHOPPING
         </h1>
       </div>
-      <button  className="p-[5px] border-x-green-600 text-white rounded-md">
+      <button  onClick={() => onRemove(product.id)}  className="p-[5px] border-x-green-600 text-white rounded-md">
         Remove from cart
       </button>
     </>

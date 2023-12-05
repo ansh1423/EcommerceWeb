@@ -6,7 +6,7 @@ class ProductApi{
     async getProduct(){
       // ${process.env.NEXT_PUBLIC_HOST}
       console.log("data from product");
-       const response = await axios.get(`http://localhost:5000/userapp/product/get/64e353cea474fca8fa0107eb`,{
+       const response = await axios.get(`${process.env.NEXT_PUBLIC_HOST}/userapp/product/get/64e353cea474fca8fa0107eb`,{
       
         method: "get",
        
@@ -23,7 +23,7 @@ class ProductApi{
 async updateProduct(data){
     // ${process.env.NEXT_PUBLIC_HOST}
     console.log("data from product");
-     const response = await axios.put(`http://localhost:5000/userapp/product/update/63ffd0d9a024069685150c14`,data,{
+     const response = await axios.put(`${process.env.NEXT_PUBLIC_HOST}/userapp/product/update/63ffd0d9a024069685150c14`,data,{
     
       method: "put",
      
@@ -36,10 +36,10 @@ async updateProduct(data){
      else
       return false;
   } 
-async addProduct (){
+async addProduct (filter){
     const data=
         {
-            "query":{},
+            "query":filter,
             "options": {
               "collation": "",
               "sort": {"name":1},
@@ -48,7 +48,7 @@ async addProduct (){
               "lean": false,
               "leanWithId": true,
               "page": 1,
-              "limit": 9,
+              "limit": 28,
               "pagination": true,
               "useEstimatedCount": false,
               "useCustomCountFn": false,
@@ -59,7 +59,7 @@ async addProduct (){
             "isCountOnly": false
           }
           console.log("data from product");
-          const response = await axios.post(`http://localhost:5000/userapp/product/list`,data,{
+          const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/userapp/product/list`,data,{
          
            method: "post",
           

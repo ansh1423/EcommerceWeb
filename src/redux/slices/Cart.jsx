@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { cartApi } from "../../mocks/Cart";
 
 const initialState={
-    cart:{},
+    cart:[],
 }
 const slice =createSlice({
     name:"cart",
@@ -19,7 +19,9 @@ const slice =createSlice({
             state.cart=[...state.cart, ...data]
         },
         deleteCart(state,action){
-            state.cart=action.payload.data
+            let id = action.payload
+            state.cart= state.cart.filter((item)=> item.id!==id)
+
         },
         Cartlist(state,action){
             state.cart=action.payload.data;
@@ -52,7 +54,7 @@ export const deleteCart= (id) =>async (dispatch)=>{
   const result = await cartApi.deleteCart(id);
   console.log(result)
     if(result){
-        await dispatch(slice.actions.deleteCart(result.data));
+        await dispatch(slice.actions.deleteCart(id));
         return true;
     }
     return false;

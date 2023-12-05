@@ -1,4 +1,5 @@
 import { Box, styled } from '@mui/material';
+import { useRouter } from 'next/router';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Slider from "react-slick";
@@ -56,8 +57,13 @@ const Image = styled("img")(({ theme }) => ({
       },
     }))
 function Block3 (){
+  const router=useRouter();
+  const path=router.query.ProductId;
+  console.log(path)
   const data = useSelector((state)=>state.product.product)
-  const dataItem =  data && data.length>0 && data?.filter((item)=> item.id === "64e353cea474fca8fa0107eb")
+  console.log(data);
+  const dataItem =  data && data.length>0 && data?.filter((item)=> item.id === path)
+  console.log(data.Item);
   console.log(dataItem);
   
     const settings = {
@@ -87,13 +93,13 @@ function Block3 (){
       <Image src={item.path} />
       </ImageWrapper>
       ))}
-      {/* </ImageWrapper>
+       {/* </ImageWrapper>
       <ImageWrapper>
       </ImageWrapper>
       <ImageWrapper>
         <Image src='https://admin.mochishoes.com/product/19-120/660/19-120M23.jpg' />
       </ImageWrapper>
-      )} */}
+        */}
     </Slider>
   </Container>
 );

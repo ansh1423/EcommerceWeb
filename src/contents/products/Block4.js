@@ -84,7 +84,7 @@ const NextBtn = (props) =>{
 
 
 const Block4 = ({data}) => {
-  console.log(data)
+  
   const router=useRouter();
 // console.log(sliderData)  
   const settings = {

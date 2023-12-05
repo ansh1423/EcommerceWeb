@@ -16,6 +16,7 @@ import {
   styled,
 } from "@mui/material";
 import { Margin } from "@mui/icons-material";
+import { blueGrey } from "@mui/material/colors";
 
 function Footer() {
   const ColoredLocalShippingIcon = styled(LocalShippingIcon)(({ theme }) => ({
@@ -54,16 +55,16 @@ function Footer() {
             </div>
             <div class="border-l-4 border-black ..."></div>
             <div>
-              <h1 className="flex  text-xs max-lg:justify-center max-lg:py-3">
+              <h1 className="flex font-mulish text-xs max-lg:justify-center max-lg:py-3">
                 Follow us{" "}
               </h1>
               <div>
                 <h1 className="flex justify-center">
-                  <InstagramIcon sx={{ fontSize: "30px" }} />{" "}
-                  <YouTubeIcon sx={{ fontSize: "30px" }} />{" "}
-                  <FacebookIcon sx={{ fontSize: "30px" }} />{" "}
-                  <TwitterIcon sx={{ fontSize: "30px" }} />{" "}
-                  <PinterestIcon sx={{ fontSize: "30px" }} />
+                  <InstagramIcon  className="bg-cyan-500 px-1 cursor-pointer mx-1 text-white rounded-full text-center text-[35px]" sx={{ fontSize: "30px"}} />{" "}
+                  <YouTubeIcon className="bg-cyan-500 px-1 cursor-pointer  mx-1 text-white rounded-full text-center text-[35px]"  sx={{ fontSize: "30px" }} />{" "}
+                  <FacebookIcon className="bg-cyan-500 cursor-pointer px-1 mx-1 text-white rounded-full text-center text-[35px]"  sx={{ fontSize: "30px" }} />{" "}
+                  <TwitterIcon className="bg-cyan-500 cursor-pointer px-1 mx-1 text-white rounded-full text-center text-[35px]" sx={{ fontSize: "30px" }} />{" "}
+                  <PinterestIcon className="bg-cyan-500 cursor-pointer px-1 mx-1 text-white rounded-full text-center text-[35px]" sx={{ fontSize: "30px" }} />
                 </h1>
               </div>
               <h1 className="flex  text-xs max-lg:justify-center ">

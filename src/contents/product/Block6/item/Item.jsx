@@ -3,12 +3,12 @@ import React from 'react'
 import { Card, styled } from '@mui/material';
 
 const SliderContainer = styled("div")({
-    width:"85%",
+    width:"99%",
     // height:"auto",
 })
 const ImageContainer = styled(Card)(({ theme }) => ({
-    width:'26vw',
-    height:'220px',
+    width:'23vw',
+    height:'300px',
     display:"flex",
     // alignItems:"center",
     justifyContent:'center',
@@ -36,7 +36,7 @@ const Image = styled("img")(({ theme }) => ({
    
     width:"100%",
     height:"87%",
-    objectFit:"contain",
+    objectFit:"",
     [theme.breakpoints.down('md')]: {
         width:"100%",
         height:"85%",
@@ -85,9 +85,9 @@ export default function Item({posterLinks}) {
     <SliderContainer>
         <ImageContainer sx={{borderRadius:'5px',}}>
             <Image src={posterLinks.image} />
-            <Head>{posterLinks.category}</Head>
-            <Head>{posterLinks.title.shortTitle}</Head>
-            <Para>{posterLinks.price.mrp}</Para>
+            <Head className='font-[600] w-20'>Mochi</Head>
+            <Head className='font-[500] text-[16px] '>{posterLinks.title.shortTitle}</Head>
+            <Para className='font-[700] text-[15px]'>Rs. {posterLinks.price.mrp}.00</Para>
         </ImageContainer>
     </SliderContainer>
   )

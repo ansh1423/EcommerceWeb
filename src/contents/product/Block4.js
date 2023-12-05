@@ -12,13 +12,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createCart } from '../../redux/slices/Cart';
 import { useRouter } from 'next/router';
 function Block4() {
+  const router=useRouter();
+  const path=router.query.ProductId;
+  console.log(path);
   const data = useSelector((state)=>state.product.product)
-  const dataItem =  data && data.length>0 && data?.filter((item)=> item.id === "64e353cea474fca8fa0107eb")
+  const dataItem =  data && data.length>0 && data?.filter((item)=> item.id === path)
   console.log(dataItem);
   const dispatch = useDispatch()
   const {user} = useSelector((state)=> state.user)
   
-  const router=useRouter();
+  
   const addCart = async (productId) => {
     const data = {
       "userId":user.id,
@@ -37,53 +40,56 @@ function Block4() {
    
   }
 
-
-  console.log(dataItem && dataItem[0] && dataItem[0].id)
+ 
+  const images1=dataItem && dataItem[0] && dataItem[0].productImages;
+  console.log(dataItem && dataItem[0] && dataItem[0].title.longTitle)
   return (
     <>
     <div className='mx-8'>
-    <h1 className='text-2xl font-normal my-1'>{dataItem && dataItem[0] && dataItem[0].category}</h1>
+    <h1 className='text-3xl font-[500px] my-2'>{dataItem && dataItem[0] && dataItem[0].title.longTitle}</h1>
     <div className='flex justify-between '>
-    <p className='text-base'>{dataItem && dataItem[0] && dataItem[0].title && dataItem[0].title.longTitle}</p>
+    <p className='text-base'>{dataItem && dataItem[0] && dataItem[0].title && dataItem[0].title.shortTitle}</p>
     <p className="mx-9 "><ShareIcon  /></p>
     </div>
-   <p className='text-xs py-1'>{dataItem && dataItem[0] && dataItem[0].createdAt}</p> 
-    <p className='text-3xl font-medium'>Rs.{ dataItem && dataItem[0] && dataItem[0].price && dataItem[0].price.mrp}</p>
-    <p className='text-sm font-medium text-teal-400'>`(Inclusive of all taxes)`</p>
-    <p className='my-2 py-2 font-bold'>`SELECT SIZE (UK)`</p>
-    <div className='flex mx-1 px-2'> 
-     <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
+   <p className='text-xs py-2'>{dataItem && dataItem[0] && dataItem[0].createdAt}</p> 
+    <p className='text-3xl font-[900]'>Rs.{ dataItem && dataItem[0] && dataItem[0].price && dataItem[0].price.mrp}.00</p>
+    <p className='text-sm font-medium text-teal-400'>(Inclusive of all taxes)</p>
+    <p className='my-2 py-2 font-bold'>SELECT SIZE (UK)</p>
+    <div className='flex '> 
+     <div className='w-14 hover:border-[#37C2DD] cursor-pointer h-14 border-black border mx-1 rounded-full items-center flex justify-center'>
      6 
      </div>
-     <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
+     <div className='w-14 h-14 hover:border-[#37C2DD] cursor-pointer border-black border mx-1 rounded-full items-center flex justify-center'>
         7
      </div>
-     <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
+     <div className='w-14 hover:border-[#37C2DD] cursor-pointer h-14 border-black border mx-1 rounded-full items-center flex justify-center'>
         8
         </div>
-        <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
+        <div className='w-14 hover:border-[#37C2DD] cursor-pointer h-14 border-black border mx-1 rounded-full items-center flex justify-center'>
          9  
         </div>
-        <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
+        <div className='w-14  hover:border-[#37C2DD] cursor-pointer h-14 border-black border mx-1 rounded-full items-center flex justify-center'>
         10
         </div>
-        <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
+        <div className='w-14 h-14 hover:border-[#37C2DD] cursor-pointer border-black border mx-1 rounded-full items-center flex justify-center'>
           11 
         </div>
     </div>
     <h1 className='my-2 py-2 font-bold'>AVAILABLE COLORS</h1>
     <div className='flex py-2'>
-    <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
-         <img src="https://admin.mochishoes.com/product/19-120/250/19-120M11.jpg" alt="" />
+    <div className='w-14 h-14 object-contain border mx-1 rounded-full items-center flex justify-center'>
+      
+         <img src={images1[0]?.path} alt="" />
+         {/* <Image1 src={dataItem && dataItem.length>0 && dataItem[0].productImages && dataItem[0].productImages[index].path} /> */}
         </div>
-        <div className='w-14 h-14 border-black border-2 mx-1 rounded-full items-center flex justify-center'>
-           <img src="https://admin.mochishoes.com/product/19-120/250/19-120M23.jpg" alt="" />
+        <div className='w-14 h-14 object-contain  border mx-1 rounded-full items-center flex justify-center'>
+           <img src={images1[2]?.path} alt="" />
         </div>
         
     </div>
      <div>
         <button onClick={()=>addCart(dataItem && dataItem[0] && dataItem[0].id)} className="border py-2 my-4 px-4  rounded-md border-neutral-400">ADD TO CARD</button>
-        <button className=" py-2 px-24 rounded-md mx-4 bg-teal-500 text-white ">BUY NOW</button>
+        <button onClick={()=>router.push("/checkout")}  className=" py-2 px-24 rounded-md mx-4 bg-teal-500 text-white ">BUY NOW</button>
      </div>
      <div>
      <h1 className='my-2 py-2 font-bold'>AVAILABLE COLORS</h1>

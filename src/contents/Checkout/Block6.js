@@ -26,6 +26,7 @@ function Block6() {
     onSubmit: async (values, action) => {
       console.log(values);
       const data={address:[values]}
+      console.log(data)
       const result = await dispatch(updateUser(data,user.id));
       // if (result) {
       //   alert("Update Successfully");
@@ -61,8 +62,8 @@ function Block6() {
               onBlur={handleBlur}
               className="border w-full py-2 text-sm px-2 border-emerald-500"
             />
-            {errors.password && touched.password && (
-              <div style={{ color: "red" }}>{errors.password}</div>
+            {errors.locality && touched.locality && (
+              <div style={{ color: "red" }}>{errors.locality}</div>
             )}
             <h1 className="text-sm w-full py-1">city</h1>
             <input
@@ -73,8 +74,8 @@ function Block6() {
               onBlur={handleBlur}
               className="border w-full py-2 text-sm px-2 border-emerald-500"
             />
-            {errors.password && touched.password && (
-              <div style={{ color: "red" }}>{errors.password}</div>
+            {errors.city && touched.city&& (
+              <div style={{ color: "red" }}>{errors.city}</div>
             )}
             <h1 className="text-sm w-full py-1">state</h1>
             <input
@@ -85,8 +86,8 @@ function Block6() {
               onBlur={handleBlur}
               className="border w-full py-2 text-sm px-2 border-emerald-500"
             />
-            {errors.password && touched.password && (
-              <div style={{ color: "red" }}>{errors.password}</div>
+            {errors.state && touched.state && (
+              <div style={{ color: "red" }}>{errors.state}</div>
             )}
              <h1 className="text-sm w-full py-1">country</h1>
             <input
@@ -97,6 +98,9 @@ function Block6() {
               onBlur={handleBlur}
               className="border w-full py-2 text-sm px-2 border-emerald-500"
             />
+            {errors.country && touched.country && (
+              <div style={{ color: "red" }}>{errors.country}</div>
+            )}
             <h1 className="text-sm w-full py-1">pincode</h1>
             <input
               type="zipcode"
@@ -106,6 +110,9 @@ function Block6() {
               onBlur={handleBlur}
               className="border w-full py-2 text-sm px-2 border-emerald-500"
             /> 
+            {errors.zipcode && touched.zipcode && (
+              <div style={{ color: "red" }}>{errors.zipcode}</div>
+            )}
           
      
       <h1>Select Address Type</h1>

@@ -22,14 +22,14 @@ console.log(err)
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="h-80 rounded-md flex px-4  flex-col justify-center items-center w-72 border-2 bg-slate-200 ">
-        <h1 className="font-semibold mb-3">Forget Password</h1>
-        <p className="text-xs    ">
+    <div className="flex font-mulish justify-center  px-4 items-center h-screen">
+      <div className=" h-[40%] rounded-md flex px-4 pb-3 pt-3 flex-col  w-[30%] border-2 bg-[#DEB786] ">
+        <h1 className="text-[22px] text-center ">Forget Password</h1>
+        <p className=" px-5 text-center   mt-4  ">
           Enter your email and send the reset password otp to the register email
         </p>
-        <div className="flex justify-start py-2  w-full">
-          <h1 className="text-xs   ">Email</h1>
+        <div className="flex justify-start py-2   w-full">
+          <h1 className="   ">Email</h1>
         </div>
         <input
           type="email"
@@ -47,8 +47,10 @@ console.log(err)
         >
           Continue
         </button>
-
-        <p className="text-sm">Don't have account? Sign up</p>
+       <div className=" gap-2">
+        <p className=" text-center">Do you have account ? </p>
+        <p className="text-center cursor-pointer underline" onClick={router.push("./login")}>Login</p>
+        </div>
       </div>
     </div>
   );

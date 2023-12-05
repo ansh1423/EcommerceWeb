@@ -13,25 +13,25 @@ import { useSelector } from 'react-redux';
 const SliderContainer = styled('div')({
 width:"99%",
 height:"auto",
-margin:"0 2px 10px 2px",
+margin:"110 200px 10px 20px",
 overflow:"hidden",
-// boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
-// "@media (max-width: 1490px)": {
-//  margin:"2% -1.5%"
+boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
+"@media (max-width: 1490px)": {
+ margin:"2% -1.5%"
 
-// },
-// "@media (max-width: 1200px)": {
-//   width:"95%",
-//   margin:"1% 1rem"
+},
+"@media (max-width: 1200px)": {
+  width:"95%",
+  margin:"1% 1rem"
  
-//  },
+ },
 
 })
 const SliderInnerContainer = styled('div')(({ theme }) => ({
   display: "flex",
   justifyContent:"space-between",
   flexDirection:"column",
-  boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
+  // boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
   padding:"0 10px 0 20px",
   [theme.breakpoints.down('sm')]: {
     padding:"0 0 0 4px",
@@ -66,7 +66,7 @@ console.log(props.sliderData)
         arrows:true,
         infinite: false,
         speed: 500,
-        slidesToShow: 3.5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: false,
         autoplaySpeed: 2000,

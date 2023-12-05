@@ -1,9 +1,19 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material'
 import React from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useRouter } from 'next/router';
 
-function Block5() {
+function Block5({filter,setfilter}) {
+  const router=useRouter();
+  const handleClick =(min,max)=>{
+    console.log(min);
+    console.log(max);
+    const path=router.query.category;
+    setfilter({"$and":[{"price.mrp":{"$gte":min, "$lte":max}},{"title.shortTitle":{"$regex":path,"$options":"i"}}]});
+  }
+  
   return (
+
     <>
           <Accordion>
         <AccordionSummary
@@ -79,7 +89,7 @@ function Block5() {
     <AccordionDetails>
       <Box>
       <FormGroup>
-      <FormControlLabel control={<Checkbox defaultChecked />} label="J.Fontini" />
+      <FormControlLabel  control={<Checkbox defaultChecked />} label="J.Fontini" />
       <FormControlLabel required control={<Checkbox />} label="Mochi" />
       <FormControlLabel required control={<Checkbox />} label="Genx" />
       <FormControlLabel required control={<Checkbox />} label="Clarks" />
@@ -110,19 +120,19 @@ function Block5() {
         <AccordionDetails>
           <Box>
           <FormGroup>
-          <FormControlLabel required control={<Checkbox/>} label="Rs. 0 To Rs. 1000"/>
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 2000 To Rs. 3000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 3000 To Rs. 4000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 4000 To Rs. 5000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 5000 To Rs. 6000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 6000 To Rs. 7000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel onClick={(e)=>{handleClick(0,1000)}} required control={<Checkbox/>} label="Rs. 0 To Rs. 1000"/>
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}} required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}  required control={<Checkbox />} label="Rs. 2000 To Rs. 3000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 3000 To Rs. 4000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 4000 To Rs. 5000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 5000 To Rs. 6000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 6000 To Rs. 7000" />
+          <FormControlLabel onClick={(e)=>{handleClick(0,1000)}} required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel onClick={(e)=>{handleClick(0,1000)}} required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel  onClick={(e)=>{handleClick(0,1000)}}required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
     
         </FormGroup>
     

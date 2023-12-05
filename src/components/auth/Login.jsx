@@ -40,6 +40,8 @@ const Login = ({ setDilogOpen }) => {
         if (result) {
           alert("LogIn Successfully");
           router.push("/");
+          handleClear();
+         
         }
 
         console.log(result);
@@ -48,6 +50,7 @@ const Login = ({ setDilogOpen }) => {
     }); // console.log(errors)
   return (
     <>
+    <div className="flex justify-center  bg-rose-200     items-center">
       <Box
         sx={{ display: "flex", justifyContent: "center", borderRadius: "20px" }}
       >
@@ -62,11 +65,12 @@ const Login = ({ setDilogOpen }) => {
             postition: "relative",
             justifyContent: "center",
             alignItems: "center",
+            backgroundColor:"burlywood"
           }}
         >
           <CloseIcon
             onClick={handleClear}
-            sx={{ position: "absolute", top: "5px", left: "90%" }}
+            sx={{ position: "absolute", top: "12px", left: "90%" }}
           />
           <Typography className=" text-lg">LOG IN</Typography>
           <form
@@ -111,7 +115,7 @@ const Login = ({ setDilogOpen }) => {
               type="submit"
               color="primary"
               className="bg-blue-500 my-8 text-white hover:bg-blue-500"
-              // onClick={handleSubmit}
+               onClick={handleSubmit}
             >
               Continue
             </Button>
@@ -119,17 +123,18 @@ const Login = ({ setDilogOpen }) => {
               Forget Password
             </h1>
           </form>
-          <div className="flex">
-            <Typography>Don't have an Account ?</Typography>
+          <div className="flex gap-2">
+            <Typography>Don't have an Account?  </Typography>
             <Typography
               onClick={handleRegister}
               className="cursor-pointer gap-1  "
             >
-              Sign Up
+               Sign Up
             </Typography>
           </div>
         </Box>
       </Box>
+      </div>
     </>
   );
 };
