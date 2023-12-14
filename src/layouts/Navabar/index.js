@@ -58,6 +58,7 @@ useEffect(()=>{
 },[filter])
 
 const handleQuery = (query) => {
+  console.log(query)
   router.push(`/products/${query}`)
    setQuery(query)
   setFilter({"category":query})

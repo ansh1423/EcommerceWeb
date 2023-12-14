@@ -6,8 +6,8 @@ import Block3 from './Block3'
 function Block1() {
   return (
     <> 
-     <div className='my-28'>
-    <div className='text-2xl mx-4 my-5'>
+     <div className='mt-10 border-t-2 mb-10'>
+    <div className='text-3xl mx-4  mb-5 mt-10'>
         Shopping Cart
     </div>
      <Box sx={{ flexGrow: 1 }}>

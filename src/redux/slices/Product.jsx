@@ -60,8 +60,8 @@ export const deleteProduct= () =>async (dispatch)=>{
   }  
 }
 
-export const addProduct = (filter) => async (dispatch)=>{
-    const result =await productApi.addProduct(filter);
+export const addProduct = (filter,page) => async (dispatch)=>{
+    const result =await productApi.addProduct(filter,page);
     console.log(result)
     if(result){
         await dispatch(slice.actions.addProduct(result.data));

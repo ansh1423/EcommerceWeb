@@ -1,6 +1,7 @@
 
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select, useTheme } from '@mui/material'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 const ITEM_HEIGHT = 40;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -30,6 +31,8 @@ const names = [
 function Block2() {
     const theme = useTheme();
     const [personName, setPersonName] = useState([]);
+    const data = useSelector((state)=>state?.product?.product?.[0]?.category)
+    console.log(data);
   
     const handleChange = (event) => {
       const {
@@ -43,21 +46,21 @@ function Block2() {
    
   return (
     <>
-    <div class=' border-b border-slate-300 max-md:hidden'>
-    <div className='flex pb-2  items-end justify-between'>
+    <div class=' border-b mx-4 flex w-full  max-md:hidden'>
+    <div className='flex  w-full justify-between pb-2 px-2   '>
    <div className='text-[15px]  font-[600px] '>
      <p className='py-2  '>FILTERS</p>
    </div>
-     <div class='flex gap-1  h-8'>
-       <h1 className='font-[400px] text-[13px]  bg-slate-100 rounded-lg px-2 py-1'>Men Chappal</h1>
-       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Sandals</h1>
-       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Sneakers</h1>
-       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Loafers</h1>
-       <h1 className='font-[400px] text-[13px] bg-slate-100 rounded-lg px-2 py-1'>Men Jutis</h1>
+     <div class='flex gap-2 '>
+       <h1 className='font-[400px] py-3  text-[16px]  bg-slate-100 rounded-lg px-2 '>{data} Chappal</h1>
+       <h1 className='font-[400px]  py-3 text-[16px] bg-slate-100 rounded-lg px-2 '>{data} Sandals</h1>
+       <h1 className='font-[400px] py-3  text-[16px] bg-slate-100 rounded-lg px-2 '>{data} Sneakers</h1>
+       <h1 className='font-[400px] py-3 text-[16px] bg-slate-100 rounded-lg px-2 '>{data} Loafers</h1>
+       <h1 className='font-[400px] py-3 text-[16px] bg-slate-100 rounded-lg px-2'>{data} Jutis</h1>
        </div>
-     <div className=''>
-    <FormControl sx={{  width:200 }}>
-    <InputLabel id="demo-multiple-name-label text-[2px]">Sort By : Popularity</InputLabel>
+     <div className='flex  mx-6'>
+    <FormControl sx={{  width:300,  }}>
+    <InputLabel id="demo-multiple-name-label  mr-4 text-[2px]">Sort By : Popularity</InputLabel>
     <Select
       labelId="demo-multiple-name-label"
       id="demo-multiple-name"

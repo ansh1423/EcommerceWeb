@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -8,12 +8,16 @@ import SliderItem from './slider/SliderItem';
 import { ArrowBack, ArrowForward, ChevronLeftOutlined, ChevronRightOutlined, } from '@mui/icons-material';
 
 import { Box, Button, styled, Typography } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Shoesimage } from './Block4/Shoesimage';
+import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
 import { useRouter } from 'next/router';
+import { addProduct, getProduct } from '../../redux/slices/Product';
+import InfiniteScroll from "react-infinite-scroll-component";
+
 const SliderContainer = styled('div')({
-width:"30%",
-height:"30%",
+width:"22%",
+height:"22%",
 // display: "flex",
 overflow:"hidden",
 
@@ -44,7 +48,7 @@ const SliderInnerContainer = styled('div')({
   // border:'1px solid black',
   overflow:"hidden",
   backgroundColor:'#EBEBEB',
-  paddingBottom:"30px",
+ 
 // paddingRight:'40px',
   // boxShadow: "0 1px 5px rgba(104, 104, 104, 0.8)",
   "@media (max-width: 900px)": {
@@ -84,11 +88,60 @@ const NextBtn = (props) =>{
 
 
 const Block4 = ({data}) => {
+  const [datas, setDatas] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const scrollObserver = useRef(null);
+  const dispatch=useDispatch();
   
+
+
+ 
   const router=useRouter();
-// console.log(sliderData)  
+  const datae = useSelector((state)=>state?.product)
+  console.log(datae)
+  // const fetchDataFromAPI = async (pageNum) => {
+  //   try {
+  //     setLoading(true);
+  //     const response = await dispatch(addProduct({}, pageNum));
+  //     console.log(responce)
+  //     setDatas((prevData) => [...prevData,...response]);
+  //     setPage((prevPage) => prevPage + 1);
+  //     setHasMore(responce.length > 0);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchDataFromAPI(page);
+  // }, [page]);
+  
+  // const handleScroll = () => {
+  //   const element = scrollObserver.current;
+  
+  //   if (element) {
+  //     const { scrollTop, scrollHeight, clientHeight } = element;
+  //     const atBottom = scrollTop + clientHeight >= scrollHeight;
+  
+  //     if (atBottom && !loading && hasMore) {
+  //       fetchDataFromAPI(page + 1);
+  //     }
+  //   }
+  // };
+  
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
+  
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [loading, hasMore, page]);
+  
   const settings = {
-    dots: true,
+    dots: false,
     arrows:false,
     infinite:true,
     speed: 500,
@@ -153,26 +206,31 @@ const Block4 = ({data}) => {
         },
     ]
   };
+  console.log(data);
   
   return (
     <>
      
-    <SliderContainer>         
+     
+    <SliderContainer className='relative'>         
        <SliderInnerContainer  onClick={()=>router.push(`/product/${data.id}`)} >
-    <Slider {...settings}>
+    <Slider {...settings} className='border  cursor-pointer' ref={scrollObserver} >
+      
      {data && data.productImages.length >0 && data.productImages?.map((item) => (
       
     <SliderItem key={item} posterLinks={item}  />
 ))} 
     </Slider>
-   
-    <div>
-    <h1 className='text-sm font-bold text-start px-3 pt-1 '>{data?.title?.shortTitle}</h1>
-    <h2 class='text-sm text-start font-medium px-3 pt-1'>{data?.title?.longTitle}</h2>
-    <h3 class='text-sm text-start font-bold px-3 p-1'>Rs. 3330 </h3>
+    
+    <div className=' bg-white py-2 '>
+    <h1 className='text-[15px] text-black font-mulish font-[800] text-start   '>Mochi</h1>
+    <h2 class='text-[15px] text-start  font-mulish font-[600]   '>{data?.title?.shortTitle}</h2>
+    <h3 class='text-[16px] text-start  text-black font-[1000]  font-mulish '>Rs. {data?.price?.mrp}.00 </h3>
     </div>
+    
       </SliderInnerContainer>  
     </SliderContainer>
+    
     
   
 

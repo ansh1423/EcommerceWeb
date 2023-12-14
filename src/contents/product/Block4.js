@@ -45,13 +45,13 @@ function Block4() {
   console.log(dataItem && dataItem[0] && dataItem[0].title.longTitle)
   return (
     <>
-    <div className='mx-8'>
-    <h1 className='text-3xl font-[500px] my-2'>{dataItem && dataItem[0] && dataItem[0].title.longTitle}</h1>
+    <div className='mx-8 font-mulish'>
+    <h1 className='text-[30px] font-[700] my-2'>Mochi</h1>
     <div className='flex justify-between '>
-    <p className='text-base'>{dataItem && dataItem[0] && dataItem[0].title && dataItem[0].title.shortTitle}</p>
+    <p className='text-[17px] font-[600] '>{dataItem && dataItem[0] && dataItem[0].title && dataItem[0].title.shortTitle}</p>
     <p className="mx-9 "><ShareIcon  /></p>
     </div>
-   <p className='text-xs py-2'>{dataItem && dataItem[0] && dataItem[0].createdAt}</p> 
+   <p className='text-sm py-2'>SKU: 18-1582-11-40</p> 
     <p className='text-3xl font-[900]'>Rs.{ dataItem && dataItem[0] && dataItem[0].price && dataItem[0].price.mrp}.00</p>
     <p className='text-sm font-medium text-teal-400'>(Inclusive of all taxes)</p>
     <p className='my-2 py-2 font-bold'>SELECT SIZE (UK)</p>
@@ -76,8 +76,8 @@ function Block4() {
         </div>
     </div>
     <h1 className='my-2 py-2 font-bold'>AVAILABLE COLORS</h1>
-    <div className='flex py-2'>
-    <div className='w-14 h-14 object-contain border mx-1 rounded-full items-center flex justify-center'>
+    <div className='flex  py-2'>
+    <div className='w-14 h-14 object-contain  border rounded-full items-center flex justify-center'>
       
          <img src={images1[0]?.path} alt="" />
          {/* <Image1 src={dataItem && dataItem.length>0 && dataItem[0].productImages && dataItem[0].productImages[index].path} /> */}
@@ -117,39 +117,46 @@ function Block4() {
       </p>
      </div>
     <div>
-    <h1 className='my-2 py-2  text-2xl font-bold'>PRODUCT DETAILS</h1>
+    <h1 className='my-2 py-2  text-2xl '>PRODUCT DETAILS</h1>
     <p className='py-2'>Mochi Tan Formal Derby</p>
      <div className='grid grid-cols-2 '>
-      <div>
-     <p className=''>Type</p>
-     <h1 className=' font-medium'>Lace Up</h1>
+      <div className='border-b'>
+       
+     <p className='font-[300]'>Type</p>
+     <h1 className=' font-[600] text-[18px]'>Sandals</h1>
+     
       </div>
-      <div>
-     <p className=''>Type</p>
-     <h1 className='py-2  font-medium'>Lace Up </h1>
+      
+      <div className=''>
+     <p className='font-[300]'>Upper Material</p>
+     <h1 className='py-2 font-[600] text-[18px] '>Synthetic </h1>
      <hr />
       </div>
-      <div>
-     <p className=''>Type</p>
-     <h1 className=' font-medium'>Lace Up</h1>
+      <div className='border-b'>
+     <p className='font-[300]'>Occasion</p>
+     <h1 className='font-[600] text-[18px]'>Casual</h1>
       </div>
-      <div>
-     <p className=''>Type</p>
-     <h1 className='py-2 font-medium'>Lace Up</h1>
+      <div >
+     <p className='font-[300]'>Gender</p>
+     <h1 className='py-2 font-[600] text-[18px]'>Men</h1>
      <hr />
       </div>
-      <div>
-     <p className=''>Type</p>
-     <h1 className='  font-medium'>Lace Up</h1>
+      <div  className='border-b'>
+     <p className='font-[300]'>Color</p>
+     <h1 className=' font-[600] text-[18px]'>Tan</h1>
       </div>
       <div>
-     <p className=''>Type</p>
-     <h1 className=' font-medium py-2'>Lace Up</h1>
+     <p className='font-[300]'>Brand</p>
+     <h1 className=' font-[600] text-[18px] py-2'>Mochi</h1>
      <hr />
       </div>
-      <div>
-     <p className=''>Type</p>
-     <h1 className=' font-medium'>Lace Up</h1>
+      <div className='border-b'>
+     <p className='font-[300]'>Country of Origin</p>
+     <h1 className=' font-[600] text-[18px]'>India</h1>
+      </div>
+      <div className='border-b'>
+     <p className='font-[300]'>Net Quantity</p>
+     <h1 className=' font-[600] text-[18px]'>Net Quantity: 1 Pair</h1>
       </div>
 
 
@@ -162,7 +169,7 @@ function Block4() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Care Instruction</Typography>
+          <Typography className='font-[400] text-[20px]'>Care Instruction</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -176,7 +183,7 @@ function Block4() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Return and shipping policy</Typography>
+          <Typography className='font-[400] text-[20px]'>Return and shipping policy</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -191,7 +198,7 @@ function Block4() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Other Details</Typography>
+          <Typography className='font-[400] text-[20px]'>Other Details</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -206,7 +213,7 @@ function Block4() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Consumer Complain Contact</Typography>
+          <Typography className='font-[400] text-[20px]'>Consumer Complain Contact</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

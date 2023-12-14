@@ -51,7 +51,7 @@ function Block3() {
                         item.products[0].productId.image
                       }
                       alt="hhd"
-                      className="w-24 m-4 h-24"
+                      className="w-48 h-48 mr-5"
                     />
                   </div>
                   <div>
@@ -60,9 +60,9 @@ function Block3() {
                       {item &&
                         item.products.length > 0 &&
                         item.products[0].productId &&item.products[0].productId.title&&
-                        item.products[0].productId.title.longTitle}
+                        item.products[0].productId.title.shortTitle}
                     </p>
-                    <p className="text-base my-2 font-bold ">
+                    <p className="text-base my font-bold ">
                       Rs.
                       {item &&
                         item.products.length > 0 &&
@@ -70,7 +70,7 @@ function Block3() {
                         item.products[0].productId.price.mrp}
                       .00
                     </p>
-                    <p className="text-xs text-blue-400">
+                    <p className="text-sm text-blue-400">
                       (Inclusive of all taxes)
                     </p>
                     <div className="text-sm m-2">
@@ -96,8 +96,8 @@ function Block3() {
                 <p className="text-sm font-light py-2">1</p>
               </div>
               <div>
-                <p className=" text-sm font-light py-2">Subtotal</p>
-                <p className="text-sm font-light py-2">
+                <p className=" text-sm font-light mx-10 py-2">Subtotal</p>
+                <p className="text-sm mx-10 font-[500] py-2">
                  
                       Rs.
                       {item &&
@@ -113,10 +113,10 @@ function Block3() {
       </div>
 
       <div className="flex justify-between mx-4">
-        <h1 className="py-3 mx-8 px-4 border-2 rounded-md text-xs font-base">
+        <h1 onClick={()=>{router.push('/home')}} className="py-3 mx-8 cursor-pointer px-4 border-2 rounded-md text-xs font-base">
           ADD MORE FROM WISHLIST
         </h1>
-        <h1 onClick={handleShopping} className="py-3  px-4 border-2 rounded-md text-xs font-base ">
+        <h1 onClick={handleShopping} className="py-3  cursor-pointer px-4 border-2 rounded-md text-xs font-base ">
           CONTINUE SHOPPING
         </h1>
       </div>

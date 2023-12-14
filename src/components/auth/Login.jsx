@@ -12,7 +12,12 @@ import { useRouter } from "next/router";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch } from "react-redux";
 import { login, register } from "../../redux/slices/Auth";
+import {auth,provider} from '../googleSignin/config'
+// import { useSession,signIn } from "next-auth/react";
+
+
 const Login = ({ setDilogOpen }) => {
+  const { data: session } = useSession()
   const router = useRouter();
   const dispatch = useDispatch();
   const handleForget = () => {
@@ -21,6 +26,9 @@ const Login = ({ setDilogOpen }) => {
   const handleRegister = () => {
     router.push("/signup");
   };
+  const handleSubmitgoogle= ()=> {
+     signIn('google', {callbackUrl:"http://localhost:3000"})
+  }
 
   const handleClear = () => {
     setDilogOpen(false);
@@ -48,6 +56,7 @@ const Login = ({ setDilogOpen }) => {
         action.resetForm();
       },
     }); // console.log(errors)
+    if(session){
   return (
     <>
     <div className="flex justify-center  bg-rose-200     items-center">
@@ -119,6 +128,14 @@ const Login = ({ setDilogOpen }) => {
             >
               Continue
             </Button>
+            <Button
+              type="submit"
+              color="primary"
+              className="bg-red-500 my-2 text-white hover:bg-blue-500"
+               onClick={handleSubmitgoogle}
+            >
+              Login With Google
+            </Button>
             <h1 onClick={handleForget} className="text-center cursor-pointer">
               Forget Password
             </h1>
@@ -138,5 +155,7 @@ const Login = ({ setDilogOpen }) => {
     </>
   );
 };
+}
+
 
 export default Login;

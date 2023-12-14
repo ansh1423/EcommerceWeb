@@ -16,33 +16,39 @@ function Block3() {
   },[])
   return (
     <>
-  {data && data.length>0 && data?.map((item,index)=>(
+  {data && data.length > 0 && data.map((item, index) => (
+  <div key={index}>
+    {item && item.products && item.products.length > 0 && item.products.map((product, productIndex) => (
+      
+      <table key={productIndex} className='w-full'>
 
- 
-    <table className='w-full  '>
   <tr class="text-[13px] mx-2 font-[700px] font-mulish">
+    
     <th className='flex justify-start'>Order #</th>
-    <th>Order Date</th>
+    <th>Date and Time</th>
     <th>Order Total</th>
     <th>Order Items id/SKDU</th>
     <th>Status</th>
     <th>Action</th>
   </tr>
+
   <tr className='font-mulish font-[400px] text-[14px]'>
     <td className='font-[400px] text-[14px]'>
       <div className='flex  items-center '>
-      <img src="https://admin.mochishoes.com/product/16-447/250/16-447M23.jpg"  className='w-14 h-12' alt="" />
-      <p className='text-center'>M202049343544</p>
+      <img src={product?.productId?.image} className='w-14 h-12' alt="" />
+      <p className='text-center'>{product?.productId?.shortTitle}</p>
       </div>
       </td>
     <td className='mx-3 font-[400px] text-[14px]'>{item.updatedAt}</td>
-    <td className='mx-8'>Rs. 2690.00</td>
-     <td>	Order Item ID: 1636809</td>
+    <td className='mx-8'>Rs. {product?.productId?.price?.mrp}.00</td>
+     <td>{product?.productId?.id}</td>
      <td>ORDER CONFIRMED</td>
-     <td><button onClick={()=>router.push('/orderdetails/')} className='text-white text-[12px] px-[5px] py-[1px] bg-[#36C2DD]'>View Details</button></td>
+     <td><button onClick={()=>router.push(`/orderdetails/${product?.productId?.id}`)} className='text-white text-[12px] px-[5px] py-[1px] bg-[#36C2DD]'>View Details</button></td>
   </tr>
-</table>
- ))}
+  </table>
+    ))}
+  </div>
+))}
 </>
   )
 }

@@ -270,20 +270,11 @@ function Block5({filter,setfilter}) {
         <AccordionDetails>
           <Box>
           <FormGroup>
-          <FormControlLabel required control={<Checkbox/>} label="Rs. 0 To Rs. 1000"/>
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 2000 To Rs. 3000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 3000 To Rs. 4000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 4000 To Rs. 5000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 5000 To Rs. 6000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 6000 To Rs. 7000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-    
+          <FormControlLabel required control={<Checkbox/>} label="LEATHER"/>
+          <FormControlLabel required control={<Checkbox />} label="SYNTHESIS" />
+          <FormControlLabel required control={<Checkbox />} label="FABRIC" />
+          <FormControlLabel required control={<Checkbox />} label="N/A" />
+          <FormControlLabel required control={<Checkbox />} label="MESH" />
         </FormGroup>
     
           </Box>
@@ -300,19 +291,14 @@ function Block5({filter,setfilter}) {
         <AccordionDetails>
           <Box>
           <FormGroup>
-          <FormControlLabel required control={<Checkbox/>} label="Rs. 0 To Rs. 1000"/>
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 2000 To Rs. 3000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 3000 To Rs. 4000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 4000 To Rs. 5000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 5000 To Rs. 6000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 6000 To Rs. 7000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
+          <FormControlLabel required control={<Checkbox/>} label="BLACK"/>
+          <FormControlLabel required control={<Checkbox />} label="TAN" />
+          <FormControlLabel required control={<Checkbox />} label="MAROON" />
+          <FormControlLabel required control={<Checkbox />} label="GREY" />
+          <FormControlLabel required control={<Checkbox />} label="BROWN" />
+          <FormControlLabel required control={<Checkbox />} label="GREEN" />
+          <FormControlLabel required control={<Checkbox />} label="OLIVE" />
+          <FormControlLabel required control={<Checkbox />} label="WHITE" />
     
         </FormGroup>
     
@@ -330,20 +316,11 @@ function Block5({filter,setfilter}) {
         <AccordionDetails>
           <Box>
           <FormGroup>
-          <FormControlLabel required control={<Checkbox/>} label="Rs. 0 To Rs. 1000"/>
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 2000 To Rs. 3000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 3000 To Rs. 4000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 4000 To Rs. 5000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 5000 To Rs. 6000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 6000 To Rs. 7000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-          <FormControlLabel required control={<Checkbox />} label="Rs. 1000 To Rs. 2000" />
-    
+          <FormControlLabel required control={<Checkbox/>} label="FORMAL"/>
+          <FormControlLabel required control={<Checkbox />} label="CASUAL" />
+          <FormControlLabel required control={<Checkbox />} label="ETHNIC" />
+          <FormControlLabel required control={<Checkbox />} label="PARTY" />
+          <FormControlLabel required control={<Checkbox />} label="SPORT" />
         </FormGroup>
     
           </Box>

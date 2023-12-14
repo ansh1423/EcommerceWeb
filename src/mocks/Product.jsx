@@ -30,13 +30,13 @@ async updateProduct(data){
     });
     console.log("data from product",response)
      if(response.data.status==='SUCCESS'){
-     console.log(response)
+     console.log(response.data)
      return response.data;
      }
      else
       return false;
   } 
-async addProduct (filter){
+async addProduct (filter,page){
     const data=
         {
             "query":filter,
@@ -47,8 +47,8 @@ async addProduct (filter){
               "projection": "",
               "lean": false,
               "leanWithId": true,
-              "page": 1,
-              "limit": 28,
+              "page": page,
+              "limit": 20,
               "pagination": true,
               "useEstimatedCount": false,
               "useCustomCountFn": false,

@@ -1,8 +1,11 @@
 import { Box, Button, styled, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Shoesimage } from "../Block4/Shoesimage";
 import { useSelector } from "react-redux";
+import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
+import { red } from "@mui/material/colors";
+
 
 const SliderContainer = styled("div")({
   width: "100%",
@@ -55,10 +58,16 @@ const Image = styled("img")({
   },
 });
 
+
 const SliderItem = ({ posterLinks }) => {
    
+  const [color,setColor]=useState();
   return (
     <>
+      <FavoriteBorderSharpIcon
+      onClick={() => setColor('red')} // Set color to 'red' on click
+      className={`bg-white h-8 w-full relative left-36 ${color}`}
+    />
       <SliderContainer sx={{backgroundColor:"black"}}>
         <ImageContainer  sx={{backgroundColor:"black"}}>
           <Box sx={{ width: "100%", height: "100%" }}>

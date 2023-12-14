@@ -9,6 +9,8 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../redux/slices/Order';
 import { deleteCart } from '../../redux/slices/Cart';
+import Script from 'next/script'
+import axios from 'axios';
 
 const Accordion = styled((props) => (
 
@@ -52,12 +54,20 @@ function Block3() {
   const router=useRouter();
   const handleorders = async()=>{
     router.push('/order')
-  }
+  } 
   const user=useSelector((state)=>state?.user?.user);
   console.log(user);
 
   const cart= useSelector((state)=>state?.cart?.cart)
   console.log(cart)
+  let totalPrice =1000000;
+  
+ for(let i =0;i<cart.length;i++){
+ let ans = (cart[i]?.products[0]?.productId?.price.mrp)*(cart[i]?.products[0].qty)
+  // console.log(ans)
+ totalPrice=totalPrice+ans; 
+ }
+ console.log(totalPrice);
   const [expanded, setExpanded] = React.useState('panel1');
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -113,6 +123,7 @@ function Block3() {
     else{
     const res = await dispatch(createOrder(data));
     console.log(res);
+
     let query = {"userId":`${user.id}`,"isDeleted":false}
     console.log(query)
     let sort = {"name":1}
@@ -122,26 +133,72 @@ function Block3() {
      dispatch(deleteCart(item.id));
         
       })}
-      router.push('/order');
+    //   router.push('/order');
       
-     alert('Order Placed  Successfully');
-    }
-    else{
+      alert('Order Placed  Successfully');
+     }
+     else{
      alert('Some errors are occurred');
-    }
+     }
     }
   
   }
-    
+
+   
+  const handlePay = async () =>{
+
+    console.log("heelo pay")
+  
+      const option = {
+        amount : 10000,
+        currency : 'INR'
+      }
+  
+
+      cashOnDelivery()
+      const {data} = await axios.post('http://localhost:8000/userapp/payment/checkout',option, {
+       headers: { Authorization: `Bearer ${localStorage.getItem('accessToken')}` }
+   });
+    //  if(data.status==='SUCCESS'){
+
+
+      const options = {
+        key:process.env.NEXT_PUBLIC_RAZORPAY_API_ID,
+        "amount": totalPrice, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": user.email,
+        "description": "Test Transaction",
+        "image": "https://avatars.githubusercontent.com/u/86181346?v=4",
+        // "order_id": data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "callback_url": "http://localhost:8000/userapp/payment/paymentVerify",
+        "prefill": {
+            "name":  user.email,
+            "email": user.email,
+            "contact":user.phone
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+       var rzp1 = new window.Razorpay(options);
+        rzp1.open();
+  
+  }
+  
+
 
   return (
     <>
+     <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
     <Accordion expanded={expanded === 'panel1'} sx={{width:'100%'}} onChange={handleChange('panel1')}>
       <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-        <Typography>CREDIT CARD</Typography>
+        <Typography >CREDIT CARD</Typography>
       </AccordionSummary>
       <AccordionDetails className='flex justify-end'>
-         <button  className='py-3  flex justify-end text-white my-2 px-6 rounded-lg text-xl bg-teal-500'>Pay now</button>
+         <button onClick={handlePay} className='py-3  flex justify-end text-white my-2 px-6 rounded-lg text-xl bg-teal-500'>Pay now</button>
       </AccordionDetails >
     </Accordion>
     <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>

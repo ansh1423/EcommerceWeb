@@ -27,35 +27,38 @@ console.log(mrp)
   return (
     <>
      
-    <div className=' w-72 h-96  px-4 mx-4'>
-        <p className='py-2'>Order Summary</p>
-        <div className='flex  py-2 justify-between'>
-          <p className='flex font-extralight text-sm '>Coupon</p>
+    <div className=' w-96 h-[26rem] bg-[#FAFAFA]  px-4 mx-4'>
+        <p className='py-2 text-[18px]'>Order Summary</p>
+        <hr></hr>
+        <div className='flex  py-3 justify-between'>
+          <p className='flex font-extralight text-md '>Coupon</p>
           <button type="Apply" className='flex font-extralight text-sm border-2 py-1 px-2 rounded-md'>Apply</button>
         </div>
-        <p className='py-2'> Price Details</p>
-        <div className='flex text-sm font-thin py-2 justify-between'>
+        <p className='mb-2 text-[18px]'> Price Details</p>
+        <hr></hr>
+        <div className='flex text-sm   font-thin py-3 justify-between'>
+          
           <p className='flex '>Total MRP</p>
-          <button type="Apply" className='flex '>{discount2}</button>
+          <button type="Apply" className='flex text-[14px] font-[600] '>Rs. {discount2}.00</button>
         </div> 
-        <div className='flex text-sm font-thin py-2 justify-between'>
+        <div className='flex text-sm font-thin py-3 justify-between'>
           <p className='flex '>Total Discount on MRP</p>
-          <button type="Apply" className='flex '>0.00</button>
+          <button type="Apply" className='flex '>- Rs. 0.00</button>
         </div>
 
-        <div className='flex text-sm font-thin py-2 justify-between'>
+        <div className='flex text-sm font-thin py-3 justify-between'>
           <p className='flex '>Total Discount</p>
-          <button type="Apply" className='flex '>0.00</button>
+          <button type="Apply" className='flex '>- Rs. 0.00</button>
         </div>
 
-        <div className='flex text-sm font-thin py-2 justify-between'>
+        <div className='flex text-sm font-thin py-3 justify-between'>
           <p className='flex '>Shiping Charge</p>
-          <button type="Apply" className='flex '>0.00</button>
+          <button type="Apply" className='flex '>-Rs. 0.00</button>
         </div>
 
-        <div className='flex text-sm font-bold py-2 justify-between'>
+        <div className='flex text-sm font-bold py-3 justify-between'>
           <p className='flex '>Order Total</p>
-          <button type="Apply" className='flex '>{discount2}.00</button>
+          <button type="Apply" className='flex '>Rs. {discount2}.00</button>
         </div>
         
       

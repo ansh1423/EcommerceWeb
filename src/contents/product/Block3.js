@@ -3,11 +3,12 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Slider from "react-slick";
+import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
 // import { baseUrl } from "./config";
 const Container = styled(Box)(({ theme }) => ({
 
-    width: "520px",
-    height: "400px",
+    width: "700px",
+    height: "600px",
     [theme.breakpoints.down('lg')]: {
       width:"440px",
       height:"330px",
@@ -16,22 +17,22 @@ const Container = styled(Box)(({ theme }) => ({
       },
       [theme.breakpoints.down('md')]: {
         width:"380px",
-        height:"250px"
+        height:"350px"
         },
   
   }))
 const ImageWrapper = styled(Box)(({ theme }) => ({
     display: "flex",
     marginLeft: "140px",
-    gap:"20px",
+    gap:"",
     [theme.breakpoints.down('lg')]: {
        marginLeft:'80px',
        marginRight:"10px"
       },
   }))
 const Image = styled("img")(({ theme }) => ({
-    width:"400px",
-    height:"370px",
+    width:"550px",
+    height:"450px",
     objectFit:"cover",
     // "&:hover": {
     //   filter: "blur(2px)"
@@ -47,13 +48,15 @@ const Image = styled("img")(({ theme }) => ({
   
   }))
   const Image1 = styled("img")(({ theme }) => ({
-    width:'100px',
-    height:"100px",
+    width:'140px',
+    height:"140px",
+    marginBottom:'20px',
     marginLeft:"30px",
+     
     border:"1px solid teal",
     [theme.breakpoints.down('lg')]: {
-      width:"50px",
-      height:'50px'
+      width:"100px",
+      height:'100px'
       },
     }))
 function Block3 (){
@@ -69,13 +72,13 @@ function Block3 (){
     const settings = {
         customPaging: function(index) {
           return (
-            <a>
+            <a className='relative bottom-[26rem] right-10'> 
               <Image1 src={dataItem && dataItem.length>0 && dataItem[0].productImages && dataItem[0].productImages[index].path} />
             </a>
           );
         },
         dots: true,
-        dotsClass: "slick-dots slick-thumb",
+        dotsClass: "",
         infinite: true,
         autoPlay:true,
         autoPlaySpeed:2000,
@@ -85,7 +88,8 @@ function Block3 (){
       };    
       
   return (
-    <Container>
+    <Container className='z-[1px] absolute'>
+      <FavoriteBorderSharpIcon sx={{width:'100px'}} className='relative  left-[40rem]'/>
     {/* <h2>Custom Paging</h2> */}
     <Slider {...settings}>
       {dataItem &&  dataItem.length>0 && dataItem[0].productImages.length>0 && dataItem[0].productImages.map((item,index)=>(
